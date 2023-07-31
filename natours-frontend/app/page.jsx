@@ -34,9 +34,10 @@ export default function Home() {
       </header>
       <main className='bg-white-alabaster  flex py-32 px-24 overflow-auto'>
         <div className='border border-black border-solid w-[100%] flex  justify-center overflow-auto flex-wrap'>
-          <div className='rounded-[3px] min-h-[50rem] w-[25%] min-w-[24rem] max-w-[36rem] mx-[3rem] my-[4rem] bg-white box-shadow-standard'>
-            <div className='clip-path-card'>
+          <div className='rounded-[3px] min-h-[50rem] w-[25%] min-w-[24rem] max-w-[36rem] mx-[3rem] my-[4rem] bg-white box-shadow-standard relative'>
+            <div className='clip-path-card before:bg-green-emerald-gradient before:absolute before:w-[100%] before:h-[100%] before:opacity-70'>
               <img src='./img/tour-2-cover.jpg'></img>
+              <div className='absolute'>The Sea Explorer</div>
             </div>
           </div>
           <div className='rounded-[3px] min-h-[50rem] w-[25%] min-w-[24rem] max-w-[36rem] mx-[3rem] my-[4rem] bg-white box-shadow-standard'></div>
