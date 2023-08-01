@@ -26,6 +26,9 @@ html {
 .hover-text-shadow-black:hover {
   text-shadow: 0 0.7rem 1rem black;
 }
+.hover-button-shadow:hover {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
 .box-shadow-standard {
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.1);
 }

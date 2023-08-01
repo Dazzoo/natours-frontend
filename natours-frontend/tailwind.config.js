@@ -23,6 +23,7 @@ module.exports = {
         'grey-tundora': '#444',
         'green-emerald': '#55C57A',
         'grey-boulder': '#777777',
+        'grey-dusty': '#999999',
       },
       fontFamily: {
         lato: ['Lato', 'sans-serif'],

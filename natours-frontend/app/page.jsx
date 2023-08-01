@@ -1,13 +1,14 @@
 import Image from 'next/image';
+import { IoLocationOutline } from 'react-icons/io5';
 
 export default function Home() {
   return (
-    <div className='font-lato '>
+    <div className='font-lato'>
       <header className='bg-grey-tundora h-32 pl-20 pr-20 sm:h-32 md:h-32 lg:h-32 xl:h-32 flex justify-between text-[1.6rem] relative'>
         <nav className='flex h-full items-center'>
           <a
             href='#'
-            className='text-white-alabaster cursor-pointer font-normal uppercase hover:translate-y-[-2px] hover-text-shadow-black'
+            className='text-white-alabaster cursor-pointer font-normal uppercase hover:translate-y-[-2px] hover-text-shadow-black transition duration-300'
           >
             All tours
           </a>
@@ -18,7 +19,7 @@ export default function Home() {
         <nav className='flex h-full items-center'>
           <a
             href='#'
-            className='text-white-alabaster cursor-pointer font-normal uppercase mr-[3rem] hover:translate-y-[-2px] hover-text-shadow-black'
+            className='text-white-alabaster cursor-pointer font-normal uppercase mr-[3rem] hover:translate-y-[-2px] hover-text-shadow-black transition duration-300'
           >
             Log in
           </a>
@@ -26,7 +27,7 @@ export default function Home() {
             href='#'
             className='text-white-alabaster cursor-pointer font-normal 
             uppercase py-[1rem] px-[3rem] border-solid 
-            border border-current rounded-[10rem] hover:bg-white-alabaster hover:text-grey-boulder hover:border-grey-boulder hover:translate-y-[-2px]'
+            border border-current rounded-[10rem] hover:bg-white-alabaster hover:text-grey-boulder hover:border-grey-boulder hover:translate-y-[-2px] transition duration-300'
           >
             Sign up
           </a>
@@ -50,29 +51,55 @@ export default function Home() {
               <div className='mt-[1rem] text-[1.5rem] italic'>
                 Exploring the jaw-dropping US east coast by foot and by boat
               </div>
-              <div className=''>
+              <div className='text-[1.3rem]'>
                 <div className='mt-[1rem] flex justify-between '>
-                  <span>Miami, USA</span>
-                  <span className='w-[40%]'>June 2021</span>
+                  <span className='w-[45%]  inline-flex items-center'>
+                    <span className='inline-flex mr-[0.3rem]'>
+                      <IoLocationOutline className='h-[2rem] w-[2rem] fill-green-emerald stroke-green-emerald stroke-3' />
+                    </span>
+                    <span>Miami, USA</span>
+                  </span>
+                  <span className='w-[45%] inline-flex items-center'>
+                    <span className='inline-flex mr-[0.3rem]'>
+                      <IoLocationOutline className='h-[2rem] w-[2rem] fill-green-emerald stroke-green-emerald' />
+                    </span>
+                    <span>June 2021</span>
+                  </span>
                 </div>
                 <div className='mt-[1rem] flex justify-between'>
-                  <span>4 stops</span>
-                  <span className='w-[40%]'>15 people</span>
+                  <span className='w-[45%] inline-flex items-center'>
+                    <span className='inline-flex mr-[0.3rem]'>
+                      <IoLocationOutline className='h-[2rem] w-[2rem] fill-green-emerald stroke-green-emerald' />
+                    </span>
+                    <span>4 stops</span>
+                  </span>
+                  <span className='w-[45%] inline-flex items-center'>
+                    <span className='inline-flex mr-[0.3rem]'>
+                      <IoLocationOutline className='h-[2rem] w-[2rem] fill-green-emerald stroke-green-emerald' />
+                    </span>
+                    <span>15 people</span>
+                  </span>
                 </div>
               </div>
             </div>
-            <div className='bg-white-alabaster py-[2.5rem] px-[3rem] flex justify-between'>
+            <div className='bg-white-alabaster py-[2.5rem] px-[3rem] flex justify-between text-[1.4rem]'>
               <div
-                className='flex border border-black border-solid 
+                className='
 '
               >
-                <div>$497 per person</div>
+                <div>
+                  <span className=' font-bold'>$497</span>
+                  <span className='text-grey-dusty'> per person</span>
+                </div>
 
-                <div>4.3 rating (7)</div>
+                <div className='mt-[1rem]'>
+                  <span className=' font-bold'>4.3 </span>
+                  <span className='text-grey-dusty'> rating(7)</span>
+                </div>
               </div>
-              <div>
-                <a>Details</a>
-              </div>
+              <a className='py-[1.25rem] px-[3rem] bg-green-emerald rounded-[10rem] text-white flex self-center uppercase hover:translate-y-[-2px] hover-button-shadow cursor-pointer transition duration-300'>
+                Details
+              </a>
             </div>
           </div>
 
