@@ -30,6 +30,26 @@ html {
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.1);
 }
 
+.clip-path-card {
+  clip-path: polygon(0 0, 100% 0, 100% 83%, 0 98%);
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 42.5%;
+  }
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 52.5%;
+  }
+}
+@media (max-width: 1024px) {
+  html {
+    padding: 0;
+  }
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
