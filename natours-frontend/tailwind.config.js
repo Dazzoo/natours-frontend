@@ -17,6 +17,7 @@ module.exports = {
       },
       backgroundColor: {
         'white-alabaster': '#f7f7f7',
+        'grey-concrete': '#f2f2f2',
       },
       colors: {
         'white-alabaster': '#f7f7f7',
@@ -24,6 +25,7 @@ module.exports = {
         'green-emerald': '#55C57A',
         'grey-boulder': '#777777',
         'grey-dusty': '#999999',
+        'orange-burning': '#ff7730',
       },
       fontFamily: {
         lato: ['Lato', 'sans-serif'],

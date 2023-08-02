@@ -16,13 +16,13 @@ function Header(props) {
       </div>
       <nav className='flex h-full items-center'>
         <a
-          href='#'
+          href='/login'
           className='text-white-alabaster cursor-pointer font-normal uppercase mr-[3rem] hover:translate-y-[-2px] hover-text-shadow-black transition duration-300'
         >
           Log in
         </a>
         <a
-          href='#'
+          href='/signup'
           className='text-white-alabaster cursor-pointer font-normal 
             uppercase py-[1rem] px-[3rem] border-solid 
             border border-current rounded-[10rem] hover:bg-white-alabaster hover:text-grey-boulder hover:border-grey-boulder hover:translate-y-[-2px] transition duration-300'
