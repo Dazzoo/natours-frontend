@@ -1,0 +1,6 @@
+// jsconfig.json at project root
+
+{
+  "baseUrl": ".",
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+}
