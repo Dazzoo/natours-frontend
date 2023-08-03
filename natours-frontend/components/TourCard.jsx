@@ -3,6 +3,7 @@ import { IoLocationOutline } from 'react-icons/io5';
 import { IoFlagOutline } from 'react-icons/io5';
 import { IoPersonOutline } from 'react-icons/io5';
 import { AiOutlineCalendar } from 'react-icons/ai';
+import ButtonGreenSmall from '@/components/ButtonGreenSmall';
 
 function TourCard(props) {
   return (
@@ -66,9 +67,7 @@ function TourCard(props) {
             <span className='text-grey-dusty'> rating(7)</span>
           </div>
         </div>
-        <a className='py-[1.25rem] px-[3rem] bg-green-emerald rounded-[10rem] text-white flex self-center uppercase hover:translate-y-[-2px] hover-button-shadow cursor-pointer transition duration-300'>
-          Details
-        </a>
+        <ButtonGreenSmall name='Details' />
       </div>
     </div>
   );

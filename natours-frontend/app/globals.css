@@ -17,6 +17,7 @@ html {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  letter-spacing: 0.2px;
 }
 ::selection {
   background-color: #55c57a;
@@ -44,26 +45,37 @@ html {
   transition-duration: 60ms;
   transition-delay: 15ms;
 }
-.input-auth:focus {
+.input-auth-error-focus:focus {
   outline-width: 0px;
   border-top: 0.3rem solid transparent;
   border-bottom: 0.3rem solid #ff7730;
+}
+.input-auth-valid-focus:focus {
+  outline-width: 0px;
+  border-top: 0.3rem solid transparent;
+  border-bottom: 0.3rem solid #55c57a;
 }
 .clip-path-card {
   clip-path: polygon(0 0, 100% 0, 100% 83%, 0 98%);
 }
 
 @media (max-width: 640px) {
+  /* sm */
   html {
     font-size: 42.5%;
   }
+  .header_logo {
+    display: none;
+  }
 }
 @media (max-width: 768px) {
+  /* md */
   html {
     font-size: 52.5%;
   }
 }
 @media (max-width: 1024px) {
+  /* lg */
   html {
     padding: 0;
   }

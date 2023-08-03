@@ -26,6 +26,7 @@ module.exports = {
         'grey-boulder': '#777777',
         'grey-dusty': '#999999',
         'orange-burning': '#ff7730',
+        'red-error': '#ff0033',
       },
       fontFamily: {
         lato: ['Lato', 'sans-serif'],

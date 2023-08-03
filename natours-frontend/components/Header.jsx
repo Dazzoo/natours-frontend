@@ -2,7 +2,7 @@ import React from 'react';
 
 function Header(props) {
   return (
-    <header className='bg-grey-tundora h-32 pl-20 pr-20 sm:h-32 md:h-32 lg:h-32 xl:h-32 flex justify-between text-[1.6rem] relative font-lato'>
+    <header className='bg-grey-tundora h-32 pl-20 pr-20 flex justify-between text-[1.6rem] relative font-lato'>
       <nav className='flex h-full items-center'>
         <a
           href='#'
@@ -11,7 +11,7 @@ function Header(props) {
           All tours
         </a>
       </nav>
-      <div className='flex self-center absolute left-1/2 transform -translate-x-1/2'>
+      <div className='header_logo flex self-center absolute left-1/2 transform -translate-x-1/2'>
         <img className='h-[3.5rem]' src='./img/logo-white.png' />
       </div>
       <nav className='flex h-full items-center'>
