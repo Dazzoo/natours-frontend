@@ -119,7 +119,7 @@ function RegisterForm(props) {
         )}
       </div>
       <div className='mt-[3rem]'>
-        <ButtonSubmitGreenSmall />
+        <ButtonSubmitGreenSmall value='Register' />
       </div>
     </form>
   );

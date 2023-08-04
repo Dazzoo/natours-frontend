@@ -7,7 +7,7 @@ export default function (type) {
       return 'This field must be at least 3 characters long.';
       break;
     case 'maxLength':
-      return 'This field must not exceed 20 characters.';
+      return 'This field must not exceed 30 characters.';
       break;
     case 'pattern':
       return 'Minimum eight characters, at least one letter and one number';
