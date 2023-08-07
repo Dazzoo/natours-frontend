@@ -1,26 +1,32 @@
 import React from 'react';
+import Image from 'next/image';
 import { IoLocationOutline } from 'react-icons/io5';
 import { IoFlagOutline } from 'react-icons/io5';
 import { IoPersonOutline } from 'react-icons/io5';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import ButtonGreenSmall from '@/components/ButtonGreenSmall';
 
-function TourCard(props) {
+function TourCard({ tour, key }) {
+  const Difficulty = tour => `${tour.difficulty}-${tour.durationWeeks * 7}-days-tour`;
+  const Description = tour => tour.description.slice(0, 80);
+  const coverImgUrl = tour => `${process.env.API_BASE_URL}/${tour.imageCover}`;
+
   return (
-    <div className='rounded-[3px]  w-[25%] min-w-[28rem] max-w-[36rem] mx-[3rem] my-[4rem] bg-white box-shadow-standard relative font-lato'>
+    <div
+      key={key}
+      className='rounded-[3px]  w-[25%] min-w-[28rem] max-w-[36rem] mx-[3rem] my-[4rem] bg-white box-shadow-standard relative font-lato'
+    >
       <div className='clip-path-card before:bg-green-emerald-gradient before:absolute before:w-[100%] before:h-[100%] before:opacity-70 '>
-        <img src='./img/tour-2-cover.jpg'></img>
+        <Image width={1000} height={1000} src={'/img/tour-2-cover.jpg' || coverImgUrl(tour)} />
       </div>
       <h3 className='absolute z-20 top-[14%] xl:top-[20%] 2xl:top-[27%] right-[2rem] w-[70%]  text-right '>
         <span className='text-white-alabaster bg-green-emerald-gradient-85  text-[2.75rem] box-decoration-clone py-[1rem] px-[1.5rem] uppercase'>
-          The Sea Explorer
+          {tour.name}
         </span>
       </h3>
       <div className='mx-[3rem] my-[2.5rem]'>
-        <div className='uppercase text-[1.2rem] font-bold	text-grey-boulder'>medium-7-day-tour</div>
-        <div className='mt-[1rem] text-[1.5rem] italic'>
-          Exploring the jaw-dropping US east coast by foot and by boat
-        </div>
+        <div className='uppercase text-[1.2rem] font-bold	text-grey-boulder'>{Difficulty(tour)}</div>
+        <div className='mt-[1rem] text-[1.5rem] italic'>{Description(tour)}...</div>
         <div className='text-[1.3rem]'>
           <div className='mt-[1rem] flex justify-between '>
             <span className='w-[45%]  inline-flex items-center'>
@@ -67,7 +73,7 @@ function TourCard(props) {
             <span className='text-grey-dusty'> rating(7)</span>
           </div>
         </div>
-        <ButtonGreenSmall name='Details' />
+        <ButtonGreenSmall name='Details' href={'#'} />
       </div>
     </div>
   );
