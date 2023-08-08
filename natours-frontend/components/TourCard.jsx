@@ -9,7 +9,7 @@ import ButtonGreenSmall from '@/components/ButtonGreenSmall';
 function TourCard({ tour, key }) {
   const Difficulty = tour => `${tour.difficulty}-${tour.durationWeeks * 7}-days-tour`;
   const Description = tour => tour.description.slice(0, 80);
-  const coverImgUrl = tour => `${process.env.API_BASE_URL}/${tour.imageCover}`;
+  const coverImgUrl = tour => `${process.env.API_BASE_URL}/img/tours/${tour.imageCover}`;
   const RatingAverage = tour => tour.ratingsAverage?.toFixed(2);
   const startDate = tour => {
     const date = new Date(tour.startDates[0]);
@@ -23,8 +23,13 @@ function TourCard({ tour, key }) {
       key={key}
       className='rounded-[3px]  w-[25%] min-w-[28rem] max-w-[36rem] mx-[3rem] my-[4rem] bg-white box-shadow-standard relative font-lato'
     >
-      <div className='clip-path-card before:bg-green-emerald-gradient before:absolute before:w-[100%] before:h-[100%] before:opacity-70 '>
-        <Image width={1000} height={1000} src={'/img/tour-2-cover.jpg' || coverImgUrl(tour)} />
+      <div className='clip-path-card before:bg-green-emerald-gradient before:absolute before:w-[100%] before:h-[100%] before:opacity-70 h-[21rem] '>
+        <Image
+          width={1000}
+          height={1000}
+          src={coverImgUrl(tour) || '/img/tour-2-cover.jpg'}
+          alt={tour.name}
+        />
       </div>
       <h3 className='absolute z-20 top-[14%] xl:top-[20%] 2xl:top-[27%] right-[2rem] w-[70%]  text-right '>
         <span className='text-white-alabaster bg-green-emerald-gradient-85  text-[2.75rem] box-decoration-clone py-[1rem] px-[1.5rem] uppercase'>
