@@ -19,10 +19,8 @@ export default async function Home() {
     <div className='font-lato'>
       <main className='bg-white-alabaster  flex py-32 px-24 overflow-auto '>
         <div className=' w-[100%] min-h-[90vh] flex  justify-center overflow-auto flex-wrap'>
-          {tours.map(tour => (
-            <>
-              <TourCard key={tour._id} tour={tour} />
-            </>
+          {tours?.map(tour => (
+            <TourCard key={tour._id} tour={tour} />
           ))}
         </div>
       </main>

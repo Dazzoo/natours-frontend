@@ -10,6 +10,13 @@ function TourCard({ tour, key }) {
   const Difficulty = tour => `${tour.difficulty}-${tour.durationWeeks * 7}-days-tour`;
   const Description = tour => tour.description.slice(0, 80);
   const coverImgUrl = tour => `${process.env.API_BASE_URL}/${tour.imageCover}`;
+  const RatingAverage = tour => tour.ratingsAverage?.toFixed(2);
+  const startDate = tour => {
+    const date = new Date(tour.startDates[0]);
+    const year = date.getFullYear();
+    const month = date.toLocaleString('en-US', { month: 'long' });
+    return `${month} ${year}`;
+  };
 
   return (
     <div
@@ -33,13 +40,13 @@ function TourCard({ tour, key }) {
               <span className='inline-flex mr-[0.3rem]'>
                 <IoLocationOutline className='h-[2rem] w-[2rem] fill-green-emerald stroke-green-emerald stroke-3' />
               </span>
-              <span>Miami, USA</span>
+              <span>{tour.startLocation.description}</span>
             </span>
             <span className='w-[45%] inline-flex items-center'>
               <span className='inline-flex mr-[0.3rem]'>
                 <AiOutlineCalendar className='h-[2rem] w-[2rem] fill-green-emerald stroke-green-emerald' />
               </span>
-              <span>June 2021</span>
+              <span>{startDate(tour)}</span>
             </span>
           </div>
           <div className='mt-[1rem] flex justify-between'>
@@ -47,13 +54,13 @@ function TourCard({ tour, key }) {
               <span className='inline-flex mr-[0.3rem]'>
                 <IoFlagOutline className='h-[2rem] w-[2rem] fill-green-emerald stroke-green-emerald' />
               </span>
-              <span>4 stops</span>
+              <span>{tour.locations.length} stops</span>
             </span>
             <span className='w-[45%] inline-flex items-center'>
               <span className='inline-flex mr-[0.3rem]'>
                 <IoPersonOutline className='h-[2rem] w-[2rem] fill-green-emerald stroke-green-emerald' />
               </span>
-              <span>15 people</span>
+              <span>{tour.maxGroupSize} people</span>
             </span>
           </div>
         </div>
@@ -64,13 +71,13 @@ function TourCard({ tour, key }) {
 '
         >
           <div>
-            <span className=' font-bold'>$497</span>
+            <span className=' font-bold'>${tour.price}</span>
             <span className='text-grey-dusty'> per person</span>
           </div>
 
           <div className='mt-[1rem]'>
-            <span className=' font-bold'>4.3 </span>
-            <span className='text-grey-dusty'> rating(7)</span>
+            <span className=' font-bold'>{RatingAverage(tour)}</span>
+            <span className='text-grey-dusty'> rating({tour.ratingsQuantity})</span>
           </div>
         </div>
         <ButtonGreenSmall name='Details' href={'#'} />
