@@ -2,7 +2,6 @@
 
 const url = new URL(process.env.API_BASE_URL);
 const host = url.hostname;
-console.log(host);
 
 const nextConfig = {
   images: {

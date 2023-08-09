@@ -25,7 +25,6 @@ function RegisterForm(props) {
 
   const setConfirmPasswordError = confirm_pass => {
     if (watch('Password', '') !== confirm_pass) {
-      console.log(watch('Password', ''), watch('Confirm password', ''));
       setError('Confirm password', {
         type: 'manual',
         message: 'Passwords do not match.',

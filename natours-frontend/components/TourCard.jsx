@@ -7,7 +7,7 @@ import { AiOutlineCalendar } from 'react-icons/ai';
 import ButtonGreenSmall from '@/components/ButtonGreenSmall';
 
 function TourCard({ tour, key }) {
-  const Difficulty = tour => `${tour.difficulty}-${tour.durationWeeks * 7}-days-tour`;
+  const Difficulty = tour => `${tour.difficulty}-${tour.duration}-days-tour`;
   const Description = tour => tour.description.slice(0, 80);
   const coverImgUrl = tour => `${process.env.API_BASE_URL}/img/tours/${tour.imageCover}`;
   const RatingAverage = tour => tour.ratingsAverage?.toFixed(2);
@@ -85,7 +85,7 @@ function TourCard({ tour, key }) {
             <span className='text-grey-dusty'> rating({tour.ratingsQuantity})</span>
           </div>
         </div>
-        <ButtonGreenSmall name='Details' href={'#'} />
+        <ButtonGreenSmall name='Details' href={`/tour/${tour.slug}`} />
       </div>
     </div>
   );
