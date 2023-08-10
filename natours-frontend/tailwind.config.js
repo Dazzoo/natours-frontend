@@ -14,6 +14,7 @@ module.exports = {
           'linear-gradient(to right bottom, rgba(125, 213, 111, 1), rgba(40, 180, 135, 1))',
         'green-emerald-gradient-85':
           'linear-gradient(to right bottom, rgba(125, 213, 111, 0.85), rgba(40, 180, 135, 0.85))',
+        'orange-red-gradient': 'linear-gradient(to right, #ff7730, #eb4d4b);',
       },
       backgroundColor: {
         'white-alabaster': '#f7f7f7',
