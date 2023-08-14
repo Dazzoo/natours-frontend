@@ -17,7 +17,7 @@ html {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  letter-spacing: 0.2px;
+  letter-spacing: -0.01rem;
 }
 ::selection {
   background-color: #55c57a;
@@ -59,12 +59,19 @@ html {
 .clip-path-card {
   clip-path: polygon(0 0, 100% 0, 100% 83%, 0 98%);
 }
-.black-border {
+.clip-path-card-both {
+  clip-path: polygon(0 25%, 100% 5%, 100% 75%, 0 95%);
+}
+.bb {
   border: 1px solid black;
+}
+.clip-path-circle {
+  clip-path: circle();
 }
 
 @media (max-width: 640px) {
   /* sm */
+
   html {
     font-size: 42.5%;
   }
