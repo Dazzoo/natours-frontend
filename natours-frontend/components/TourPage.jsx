@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import ReviewsCarousel from '@/components/ReviewsCarousel';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import { IoLocationOutline } from 'react-icons/io5';
 import { AiOutlineCalendar } from 'react-icons/ai';
@@ -23,7 +24,7 @@ function TourPage({ tour }) {
 
   return (
     <>
-      <div className='relative '>
+      <div className='relative'>
         <div className=' absolute flex justify-between h-[100%] w-[100%] overflow-hidden z-[-1]'>
           <div className=' w-[50%] bg-white-alabaster h-[100%]'></div>
           <div className=' w-[50%] '></div>
@@ -96,9 +97,7 @@ function TourPage({ tour }) {
                       Participants
                     </span>
 
-                    <span className='text-[1.65rem] font-normal '>
-                      {RatingAverage(tour.maxGroupSize)} people
-                    </span>
+                    <span className='text-[1.65rem] font-normal '>{tour.maxGroupSize} people</span>
                   </div>
                   <div className='inline-flex max-sm:flex-col  items-center content-center  mb-[1.5rem]'>
                     <span className='pr-[0.8rem]'>
@@ -108,7 +107,7 @@ function TourPage({ tour }) {
                       Rating
                     </span>
 
-                    <span className='text-[1.65rem] font-normal '>{tour.ratingsAverage} / 5</span>
+                    <span className='text-[1.65rem] font-normal '>{RatingAverage(tour)} / 5</span>
                   </div>
                 </div>
               </div>
@@ -144,13 +143,34 @@ function TourPage({ tour }) {
             </div>
           </div>
         </div>
-        <div className=' h-[50vh] w-[100%]  inline-flex flex-row clip-path-card-both'>
-          <Image className='w-[33%]' height={1000} width={1000} src={'/img/beach.jpg'} />
-          <Image className='w-[34%]' height={1000} width={1000} src='/img/skateboarding.jpg' />
-          <Image className='w-[33%]' height={1000} width={1000} src='/img/skydive.jpg' />
+        <div className=' h-[30vw] max-md:h-max   w-[100%]  inline-flex flex-row max-md:flex-col clip-path-card-both'>
+          <Image
+            className='w-[33%] max-md:w-[100%]'
+            height={1000}
+            width={1000}
+            src={'/img/beach.jpg'}
+          />
+          <Image
+            className='w-[34%] max-md:w-[100%]'
+            height={1000}
+            width={1000}
+            src='/img/skateboarding.jpg'
+          />
+          <Image
+            className='w-[33%] max-md:w-[100%]'
+            height={1000}
+            width={1000}
+            src='/img/cycling.jpg'
+          />
+        </div>
+        <div className=' bg-white-alabaster h-[120rem]  relative top-[-25rem] z-[-1] pt-[25rem] '></div>
+        <div className=' bg-white-alabaster h-[100rem]  relative  '>
+          <div className='bg-green-emerald-gradient clip-path-card-both  h-[100rem]  relative top-[-65rem] w-[100%] bb flex content-center items-center'>
+            <div className='   h-[100%]  '></div>
+            <ReviewsCarousel />
+          </div>
         </div>
       </div>
-      <div className='bb bg-white-alabaster h-[70rem] relative top-[-13rem] z-[-1]'></div>
     </>
   );
 }
