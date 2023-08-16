@@ -36,6 +36,9 @@ html {
 .box-shadow-bold {
   box-shadow: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.06);
 }
+.box-shadow-bold-x2 {
+  box-shadow: 0 2.5rem 8rem 4rem rgba(0, 0, 0, 0.12);
+}
 
 .input-auth {
   height: 4.9rem;
