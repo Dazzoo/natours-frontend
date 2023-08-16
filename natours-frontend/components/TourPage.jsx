@@ -24,7 +24,7 @@ function TourPage({ tour }) {
 
   return (
     <>
-      <div className='relative'>
+      <div className='relative overflow-y-hidden	'>
         <div className=' absolute flex justify-between h-[100%] w-[100%] overflow-hidden z-[-1]'>
           <div className=' w-[50%] bg-white-alabaster h-[100%]'></div>
           <div className=' w-[50%] '></div>
@@ -164,11 +164,23 @@ function TourPage({ tour }) {
           />
         </div>
         <div className=' bg-white-alabaster h-[120rem]  relative top-[-25rem] z-[-1] pt-[25rem] '></div>
-        <div className=' bg-white-alabaster h-[100rem]  relative  '>
-          <div className='bg-green-emerald-gradient clip-path-card-both  h-[100rem]  relative top-[-65rem] w-[100%] bb flex content-center items-center'>
-            <div className='   h-[100%]  '></div>
+        <div className=' bg-white-alabaster h-[40rem]  relative  '>
+          <div className='bg-green-emerald-gradient clip-path-card-both  h-[100rem]  relative top-[-65rem] w-[100%]  flex content-center items-center'>
+            <div className='   h-[100%]  overflow-y-hidden	'></div>
             <ReviewsCarousel />
           </div>
+        </div>
+        <div className='bb bg-white-alabaster mt-[0rem] h-[20rem] w-[100%] relative top-0'>
+          fewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfew
+          fewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfew
+          fewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfew
+          fewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfew
+          fewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfew
+          fewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfew
+          fewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfew
+          fewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfew
+          fewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfew
+          fewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfewfew
         </div>
       </div>
     </>
