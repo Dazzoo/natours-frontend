@@ -170,9 +170,16 @@ function TourPage({ tour }) {
             <ReviewsCarousel />
           </div>
         </div>
-        <div className='bb bg-white-alabaster mt-[0rem] max-md:mt-[-15%] h-[60rem] w-[100%] relative top-0 flex justify-center items-center'>
-          <div className='box-shadow-bold-x2 w-[70%] max-md:w-[85%] h-[25rem] max-md:h-[20rem]  rounded-[20px] '>
-            deqww
+        <div className='bb bg-white-alabaster mt-[0rem] max-md:mt-[-15%] h-[60rem] w-[100%] relative top-0 flex justify-center items-center '>
+          <div className='box-shadow-bold-x2 w-[70%] max-md:w-[85%] h-[30rem] max-md:h-[20rem]  rounded-[20px] flex justify-between items-center overflow-hidden	'>
+            <div className='clip-box-shadow-bold-x2 h-[100%] flex items-center justify-center ml-[-5rem]'>
+              <div className='bg-green-emerald-gradient clip-path-circle h-[70%] flex items-center justify-center'>
+                <img className='w-[70%] ' src='/img/logo-white.png' />
+              </div>
+            </div>
+
+            <div>daw</div>
+            <div>daw</div>
           </div>
         </div>
       </div>
