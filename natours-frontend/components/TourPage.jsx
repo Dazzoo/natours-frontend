@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import ReviewsCarousel from '@/components/ReviewsCarousel';
+import ButtonGreenSmall from '@/components/ButtonGreenSmall';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import { IoLocationOutline } from 'react-icons/io5';
 import { AiOutlineCalendar } from 'react-icons/ai';
@@ -171,15 +172,34 @@ function TourPage({ tour }) {
           </div>
         </div>
         <div className='bb bg-white-alabaster mt-[0rem] max-md:mt-[-15%] h-[60rem] w-[100%] relative top-0 flex justify-center items-center '>
-          <div className='box-shadow-bold-x2 w-[70%] max-md:w-[85%] h-[30rem] max-md:h-[20rem]  rounded-[20px] flex justify-between items-center overflow-hidden	'>
-            <div className='clip-box-shadow-bold-x2 h-[100%] flex items-center justify-center ml-[-5rem]'>
-              <div className='bg-green-emerald-gradient clip-path-circle h-[70%] flex items-center justify-center'>
-                <img className='w-[70%] ' src='/img/logo-white.png' />
+          <div className='box-shadow-bold-x2 w-[80%] max-md:w-[85%] h-[30rem] max-md:h-[20rem]  rounded-[20px] flex justify-between items-center overflow-hidden	relative px-[5rem]'>
+            <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[100%] flex items-center justify-center ml-[-10rem] relative z-20'>
+              <div className='bg-green-emerald-gradient clip-path-circle h-[70%] flex items-center justify-center relative '>
+                <img className='w-[70%] max-md:w-[40%]' src='/img/logo-white.png' />
+              </div>
+            </div>
+            <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[100%] flex items-center justify-center ml-[-7rem] absolute z-10 	'>
+              <div className='bg-white-alabaster clip-path-circle h-[70%] flex items-center justify-center  z-10 left-[0rem] opacity-80'>
+                <img className='w-[70%] max-md:w-[40%] ' src='/img/logo-white.png' />
+              </div>
+            </div>
+            <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[100%] flex items-center justify-center ml-[-4rem] absolute z-0 	'>
+              <div className='bg-white-alabaster clip-path-circle h-[70%] flex items-center justify-center  z-10 left-[0rem] opacity-80'>
+                <img className='w-[70%] max-md:w-[40%] ' src='/img/logo-white.png' />
               </div>
             </div>
 
-            <div>daw</div>
-            <div>daw</div>
+            <div className='relative'>
+              <div className='uppercase font-bold max-sm:text-center	text-[3.2rem] max-2xl:text-[2.7rem] bg-green-emerald-gradient bg-clip-text text-transparent '>
+                What are you waiting for?
+              </div>
+              <div className='text-[2.5rem] max-2xl:text-[2rem] font-normal'>
+                10 days. 1 adventure. Infinite memories. Make it yours today!
+              </div>
+            </div>
+            <div className=''>
+              <ButtonGreenSmall name={'BOOK TOUR NOW!'} href={'/'} />
+            </div>
           </div>
         </div>
       </div>
