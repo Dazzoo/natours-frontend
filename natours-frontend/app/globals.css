@@ -75,7 +75,7 @@ html {
   clip-path: circle();
 }
 .custom-dot-list-style-reviews .react-multi-carousel-dot--active button {
-  background: #444;
+  background: #f7f7f7;
 }
 .react-multi-carousel-dot button {
   border-color: #f7f7f7 !important;
