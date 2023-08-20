@@ -1,19 +1,9 @@
 import Image from 'next/image';
 import TourCard from '@/components/TourCard';
-import getTours from '@/api/tours/getTours';
-
-// export async function getStaticProps() {
-//   console.log('data');
-
-//   const data = await getTours();
-
-//   return {
-//     props: { data: '123' },
-//   };
-// }
+import toursApi from '@/api/tours/toursApi';
 
 export default async function Home() {
-  const tours = await getTours();
+  const tours = await toursApi.getTours();
 
   return (
     <div className='font-lato'>

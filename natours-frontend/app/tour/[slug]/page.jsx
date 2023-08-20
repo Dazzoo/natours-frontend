@@ -1,10 +1,9 @@
 import React from 'react';
 import TourPage from '@/components/TourPage';
-import getTourBySlug from '@/api/tours/getTourBySlug';
-import getTours from '@/api/tours/getTours';
+import toursApi from '@/api/tours/toursApi';
 
 export async function generateStaticParams() {
-  const tours = await getTours();
+  const tours = await toursApi.getTours();
 
   let staticParams = {};
 
@@ -18,7 +17,7 @@ export async function generateStaticParams() {
 
 async function page({ params }) {
   const { slug } = params;
-  const tour = await getTourBySlug(slug);
+  const tour = await toursApi.getTourBySlug(slug);
 
   return (
     <>
