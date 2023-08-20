@@ -10,7 +10,6 @@ class Api {
   }
   async request(func) {
     try {
-      debugger;
       let res = await func();
       return res;
     } catch (error) {

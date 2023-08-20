@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import ButtonSubmitGreenSmall from '@/components/ButtonSubmitGreenSmall';
 import inputErrorHandler from '@/utility/inputErrorHandler';
 import isObjectEmpty from '@/utility/isObjectEmpty';
+import authApi from '@/api/auth/authApi';
 
 function RegisterForm(props) {
   const {
@@ -15,6 +16,12 @@ function RegisterForm(props) {
     watch,
   } = useForm();
   const onSubmit = data => {
+    authApi.SignUp(
+      data['Your name'],
+      data['Email address'],
+      data['Password'],
+      data['Confirm password']
+    );
     console.log(
       data['Your name'],
       data['Email address'],
