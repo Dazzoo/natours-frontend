@@ -15,7 +15,7 @@ function RegisterForm(props) {
     setError,
     watch,
   } = useForm();
-  const onSubmit = data => {
+  const onSubmit = async data => {
     authApi.SignUp(
       data['Your name'],
       data['Email address'],

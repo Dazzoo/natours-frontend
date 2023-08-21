@@ -5,14 +5,14 @@ class authApi extends Api {
     super();
   }
 
-  async SignUp(name, email, password, confirmPassword) {
+  async SignUp(name, email, password, passwordConfirm) {
     console.log('http', this.http);
     const response = await this.request(() =>
       this.http.post('/api/v1/users/signup', {
         name,
         email,
         password,
-        confirmPassword,
+        passwordConfirm,
         role: 'user',
       })
     );
