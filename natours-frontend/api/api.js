@@ -1,4 +1,5 @@
 const axios = require('axios');
+import { toast } from 'react-toastify';
 
 class Api {
   constructor() {
@@ -8,12 +9,23 @@ class Api {
       headers: { 'X-Custom-Header': 'foobar' },
     });
   }
-  async request(func) {
+  async request(func, options) {
     try {
       let res = await func();
+      console.log(res);
+      if (options?.notify_success) {
+        if (String(res.status)?.startsWith('2')) {
+          toast.success(`${res?.data?.message || res?.data?.status}`);
+        }
+      }
+      debugger;
       return res;
     } catch (error) {
-      console.log('err');
+      if (options?.notify_error) {
+        if (error?.response?.data?.message) {
+          toast.error(`${error?.response?.data?.message}`);
+        }
+      }
     }
   }
 }

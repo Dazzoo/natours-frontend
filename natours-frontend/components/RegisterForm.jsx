@@ -4,10 +4,12 @@ import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 import ButtonSubmitGreenSmall from '@/components/ButtonSubmitGreenSmall';
 import inputErrorHandler from '@/utility/inputErrorHandler';
-import isObjectEmpty from '@/utility/isObjectEmpty';
 import authApi from '@/api/auth/authApi';
+import { useRouter } from 'next/navigation';
 
 function RegisterForm(props) {
+  const { push } = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -15,23 +17,23 @@ function RegisterForm(props) {
     setError,
     watch,
   } = useForm();
+
   const onSubmit = async data => {
-    authApi.SignUp(
+    let signUp = await authApi.SignUp(
       data['Your name'],
       data['Email address'],
       data['Password'],
       data['Confirm password']
     );
-    console.log(
-      data['Your name'],
-      data['Email address'],
-      data['Password'],
-      data['Confirm password']
-    );
+    if (signUp) {
+      push('/login');
+    }
   };
 
-  const setConfirmPasswordError = confirm_pass => {
-    if (watch('Password', '') !== confirm_pass) {
+  const setConfirmPasswordError = (pass, confirm_pass) => {
+    let password = pass || watch('Password', '');
+    let confirmPassword = confirm_pass || watch('Confirm password', '');
+    if (password && confirmPassword && password !== confirmPassword) {
       setError('Confirm password', {
         type: 'manual',
         message: 'Passwords do not match.',
@@ -70,7 +72,7 @@ function RegisterForm(props) {
           {...register('Email address', {
             required: true,
             min: 3,
-            maxLength: 30,
+            maxLength: 60,
             pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
           })}
         />
@@ -95,6 +97,7 @@ function RegisterForm(props) {
             maxLength: 30,
             pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
           })}
+          onChange={e => setConfirmPasswordError(e.target.value, null)}
         />
         {errors['Password'] && (
           <p className='absolute bottom-[-25%] text-[1.4rem] text-orange-burning font-semibold'>
@@ -115,7 +118,7 @@ function RegisterForm(props) {
             min: 3,
             maxLength: 30,
           })}
-          onChange={e => setConfirmPasswordError(e.target.value)}
+          onChange={e => setConfirmPasswordError(null, e.target.value)}
         />
         {errors['Confirm password'] && (
           <p className='absolute bottom-[-25%] text-[1.4rem] text-orange-burning font-semibold'>
