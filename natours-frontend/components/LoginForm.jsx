@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import ButtonSubmitGreenSmall from '@/components/ButtonSubmitGreenSmall';
 import inputErrorHandler from '@/utility/inputErrorHandler';
 import isObjectEmpty from '@/utility/isObjectEmpty';
+import authApi from '@/api/auth/authApi';
 
 function LoginForm(props) {
   const {
@@ -14,8 +15,11 @@ function LoginForm(props) {
     setError,
     watch,
   } = useForm();
-  const onSubmit = data => {
-    console.log(data['Email address'], data['Password']);
+  const onSubmit = async data => {
+    let token = await authApi.Login(data['Email address'], data['Password']);
+    if (token) {
+      // localStorage.setItem('natours_token', token);
+    }
   };
 
   return (

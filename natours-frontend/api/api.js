@@ -1,5 +1,6 @@
 const axios = require('axios');
 import { toast } from 'react-toastify';
+import { parse } from 'cookie';
 
 class Api {
   constructor() {
@@ -7,6 +8,7 @@ class Api {
       baseURL: `${process.env.API_BASE_URL}`,
       timeout: 10000,
       headers: { 'X-Custom-Header': 'foobar' },
+      withCredentials: true,
     });
   }
   async request(func, options) {
@@ -18,7 +20,6 @@ class Api {
           toast.success(`${res?.data?.message || res?.data?.status}`);
         }
       }
-      debugger;
       return res;
     } catch (error) {
       if (options?.notify_error) {

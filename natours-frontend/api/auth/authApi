@@ -1,5 +1,4 @@
 import Api from '@/api/api';
-import { redirect } from 'next/navigation';
 
 class authApi extends Api {
   constructor() {
@@ -15,6 +14,23 @@ class authApi extends Api {
           password,
           passwordConfirm,
           role: 'user',
+        }),
+      {
+        notify_success: true,
+        notify_error: true,
+      }
+    );
+    if (response.data.token) {
+      return response.data.token;
+    }
+  }
+
+  async Login(email, password) {
+    const response = await this.request(
+      () =>
+        this.http.post('/api/v1/users/login', {
+          email,
+          password,
         }),
       {
         notify_success: true,

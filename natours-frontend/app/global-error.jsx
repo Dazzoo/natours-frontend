@@ -1,7 +1,7 @@
 'use client';
 
 export default function GlobalError({ error, reset }) {
-  console.log('error', process.env);
+  console.log('error', error);
   return (
     <div>
       <div className='h-[100vh]  text-[3.2rem] flex pt-[30vh]  items-center flex-col '>

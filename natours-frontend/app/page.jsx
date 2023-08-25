@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import TourCard from '@/components/TourCard';
 import toursApi from '@/api/tours/toursApi';
+import jwtParser from '@/utility/jwtParser';
 
-export default async function Home() {
-  const tours = await toursApi.getTours();
+export default async function Home(props) {
+  const tours = await toursApi.getTours(jwtParser());
 
   return (
     <div className='font-lato'>
