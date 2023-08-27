@@ -41,6 +41,14 @@ class authApi extends Api {
       return response.data.token;
     }
   }
+
+  async getMe(jwt) {
+    const response = await this.request(() => this.http.get('/api/v1/users/me'), { jwt });
+    if (response?.data.data) {
+      debugger;
+      return response.data.data;
+    }
+  }
 }
 
 export default new authApi();

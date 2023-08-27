@@ -11,10 +11,26 @@ class Api {
       withCredentials: true,
     });
   }
+
+  setToken(token) {
+    this.http.interceptors.request.use(config => {
+      // Access cookies from the document object
+
+      // Add the cookies to the request headers
+      if (token) {
+        config.headers.token = token;
+      }
+
+      return config;
+    });
+  }
+
   async request(func, options) {
     try {
+      if (options?.jwt) {
+        this.setToken(options.jwt);
+      }
       let res = await func();
-      console.log(res);
       if (options?.notify_success) {
         if (String(res.status)?.startsWith('2')) {
           toast.success(`${res?.data?.message || res?.data?.status}`);

@@ -18,7 +18,6 @@ function LoginForm(props) {
   const onSubmit = async data => {
     let token = await authApi.Login(data['Email address'], data['Password']);
     if (token) {
-      // localStorage.setItem('natours_token', token);
     }
   };
 
