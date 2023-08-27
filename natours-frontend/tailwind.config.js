@@ -23,6 +23,7 @@ module.exports = {
       colors: {
         'white-alabaster': '#f7f7f7',
         'grey-tundora': '#444',
+        'grey-tundora-lighter': '#4d4d4d',
         'green-emerald': '#55C57A',
         'grey-boulder': '#777777',
         'grey-dusty': '#999999',

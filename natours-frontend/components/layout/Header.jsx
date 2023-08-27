@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import authApi from '@/api/auth/authApi';
 import jwtParser from '@/utility/jwtParser';
+import UserInfo from '@/components/UserInfo';
 
 async function Header(props) {
   const userInfo = await authApi.getMe(jwtParser());
@@ -23,26 +24,14 @@ async function Header(props) {
         <Image height={35} width={68} src='/img/logo-white.png' />
       </div>
       {user_name ? (
-        <nav className='flex h-full items-center'>
-          <Link href='/login' className='text-white-alabaster  font-normal uppercase mr-[3rem] '>
-            {user_name}
-          </Link>
-          <span>
-            <Image
-              className='clip-path-circle select-none drag-none cursor-pointer'
-              width={50}
-              height={50}
-              src={'/img/no-user-image.gif'}
-            />
-          </span>
-        </nav>
+        <UserInfo user_name={user_name} />
       ) : (
         <nav className='flex h-full items-center'>
           <Link
             href='/login'
             className='text-white-alabaster cursor-pointer font-normal uppercase mr-[3rem] hover:translate-y-[-2px] hover-text-shadow-black transition duration-300'
           >
-            'Log in'
+            Log in
           </Link>
           <Link
             href='/signup'
