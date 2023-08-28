@@ -8,7 +8,8 @@ import UserInfo from '@/components/UserInfo';
 async function Header(props) {
   const userInfo = await authApi.getMe(jwtParser());
 
-  const user_name = userInfo.data.name;
+
+  const user_name = userInfo?.data.name;
 
   return (
     <header className='bg-grey-tundora h-32 pl-20 pr-20 flex justify-between text-[1.6rem] relative font-lato'>
