@@ -4,10 +4,12 @@ import Image from 'next/image';
 import authApi from '@/api/auth/authApi';
 import jwtParser from '@/utility/jwtParser';
 import UserInfo from '@/components/UserInfo';
+import { cookies } from 'next/headers';
 
-async function Header(props) {
+export const fetchCache = 'force-no-store';
+
+export async function Header(props) {
   const userInfo = await authApi.getMe(jwtParser());
-
 
   const user_name = userInfo?.data.name;
 
@@ -47,5 +49,3 @@ async function Header(props) {
     </header>
   );
 }
-
-export default Header;

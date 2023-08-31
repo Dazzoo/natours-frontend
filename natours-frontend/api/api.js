@@ -12,24 +12,8 @@ class Api {
     });
   }
 
-  setToken(token) {
-    this.http.interceptors.request.use(config => {
-      // Access cookies from the document object
-
-      // Add the cookies to the request headers
-      if (token) {
-        config.headers.token = token;
-      }
-
-      return config;
-    });
-  }
-
   async request(func, options) {
     try {
-      if (options?.jwt) {
-        this.setToken(options.jwt);
-      }
       let res = await func();
       if (options?.notify_success) {
         if (String(res.status)?.startsWith('2')) {

@@ -5,8 +5,11 @@ import authApi from '@/api/auth/authApi';
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from '@nextui-org/react';
 
 function UserInfo({ user_name }) {
-  const logout = () => {
-    authApi.logOut();
+  const logout = async () => {
+    const res = await authApi.logOut();
+    if (res === 'success') {
+      window.location.reload();
+    }
   };
 
   const items = [
@@ -49,7 +52,7 @@ function UserInfo({ user_name }) {
             className={
               'bg-white-alabaster text-[2rem] w-[100%] p-[1rem] [&:not(:first-child)]:mt-[0.5rem] border-white-alabaster'
             }
-            onClick={item.key === 'logout' && logout()}
+            onClick={item.key === 'logout' ? () => logout() : null}
           >
             {item.label}
           </DropdownItem>
