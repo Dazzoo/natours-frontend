@@ -9,7 +9,7 @@ import { AiOutlineRise } from 'react-icons/ai';
 import { AiOutlineStar } from 'react-icons/ai';
 import { IoPersonOutline } from 'react-icons/io5';
 
-function TourPage({ tour }) {
+function TourPage({ tour, reviews }) {
   const coverImgUrl = tour => `${process.env.API_BASE_URL}/img/tours/${tour.imageCover}`;
   const RatingAverage = tour => tour.ratingsAverage?.toFixed(2);
 
@@ -168,7 +168,7 @@ function TourPage({ tour }) {
         <div className=' bg-white-alabaster h-[40rem]  relative  '>
           <div className='bg-green-emerald-gradient clip-path-card-both  h-[100rem]  relative top-[-65rem] w-[100%]  flex content-center items-center '>
             <div className='   h-[100%]  overflow-y-hidden	'></div>
-            <ReviewsCarousel />
+            <ReviewsCarousel reviews={reviews} />
           </div>
         </div>
         <div className=' bg-white-alabaster mt-[0rem] max-md:mt-[-15%] h-[60rem] w-[100%] relative top-0 flex justify-center items-center '>
@@ -178,12 +178,12 @@ function TourPage({ tour }) {
                 <img className='w-[70%] max-md:w-[40%]' src='/img/logo-white.png' />
               </div>
             </div>
-            <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[100%] flex items-center justify-center ml-[-7rem] absolute z-10 select-none drag-none'>
+            <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[70%] flex items-center justify-center ml-[-7rem] absolute z-10 select-none drag-none'>
               <div className='bg-white-alabaster clip-path-circle h-[70%] flex items-center justify-center  z-10 left-[0rem] opacity-80'>
                 <img className='w-[70%] max-md:w-[40%] ' src='/img/logo-white.png' />
               </div>
             </div>
-            <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[100%] flex items-center justify-center ml-[-4rem] absolute z-0 select-none drag-none'>
+            <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[70%] flex items-center justify-center ml-[-4rem] absolute z-0 select-none drag-none'>
               <div className='bg-white-alabaster clip-path-circle h-[70%] flex items-center justify-center  z-10 left-[0rem] opacity-80'>
                 <img className='w-[70%] max-md:w-[40%] ' src='/img/logo-white.png' />
               </div>

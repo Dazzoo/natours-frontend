@@ -2,9 +2,12 @@
 import React from 'react';
 import Image from 'next/image';
 import authApi from '@/api/auth/authApi';
+import { useRouter } from 'next/navigation';
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from '@nextui-org/react';
 
 function UserInfo({ user_name }) {
+  const router = useRouter();
+
   const logout = async () => {
     const res = await authApi.logOut();
     if (res === 'success') {
@@ -52,7 +55,9 @@ function UserInfo({ user_name }) {
             className={
               'bg-white-alabaster text-[2rem] w-[100%] p-[1rem] [&:not(:first-child)]:mt-[0.5rem] border-white-alabaster'
             }
-            onClick={item.key === 'logout' ? () => logout() : null}
+            onClick={
+              item.key === 'logout' ? () => logout() : () => router.push('/account-settings')
+            }
           >
             {item.label}
           </DropdownItem>

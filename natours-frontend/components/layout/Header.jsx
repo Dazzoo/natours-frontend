@@ -4,7 +4,6 @@ import Image from 'next/image';
 import authApi from '@/api/auth/authApi';
 import jwtParser from '@/utility/jwtParser';
 import UserInfo from '@/components/UserInfo';
-import { cookies } from 'next/headers';
 
 export const fetchCache = 'force-no-store';
 

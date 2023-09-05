@@ -2,7 +2,7 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { AiOutlineStar } from 'react-icons/ai';
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import Image from 'next/image';
 
 function ReviewsCarousel(props) {
@@ -47,8 +47,8 @@ function ReviewsCarousel(props) {
         dotListClass='custom-dot-list-style-reviews  '
         itemClass='carousel-item-padding-40-px'
       >
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].map((el, index) => (
-          <div ket={el}>
+        {props.reviews?.map((r, index) => (
+          <div key={r.id}>
             <div
               className={`box-shadow-standard m-auto bg-white-alabaster rounded-[10px] w-[35rem] h-[35rem] flex flex-col content-center items-center  p-[5rem] mb-[5rem]`}
             >
@@ -62,27 +62,20 @@ function ReviewsCarousel(props) {
                   />
                 </div>
                 <div className='uppercase text-[1.65rem] font-semibold ml-[1rem] pr-[1.5rem]  mt-[1rem]'>
-                  GUIDE {el}
+                  {r?.user.name}
                 </div>
               </div>
               <div className='mt-[1rem]  h-[12rem] text-[1.5rem] italic overflow-hidden '>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae
-                quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis
-                harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!
-                Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius
-                earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia
-                aut! Impedit sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis
-                quas aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium
-                molestias eos sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
-                recusandae alias error harum maxime adipisci amet laborum. Perspiciatis
+                {r.review}
               </div>
               <div className='inline-flex mt-[1rem]'>
-                <AiOutlineStar className='h-[2.5rem] w-[2.5rem] fill-green-emerald stroke-green-emerald stroke-3 ' />
-                <AiOutlineStar className='h-[2.5rem] w-[2.5rem] fill-green-emerald stroke-green-emerald stroke-3 ' />
-                <AiOutlineStar className='h-[2.5rem] w-[2.5rem] fill-green-emerald stroke-green-emerald stroke-3 ' />
-
-                <AiOutlineStar className='h-[2.5rem] w-[2.5rem] fill-green-emerald stroke-green-emerald stroke-3 ' />
-                <AiOutlineStar className='h-[2.5rem] w-[2.5rem] fill-green-emerald stroke-green-emerald stroke-3 ' />
+                {[1, 2, 3, 4, 5].map(count =>
+                  Number(r?.rating) >= count ? (
+                    <AiFillStar className='h-[2.5rem] w-[2.5rem] fill-green-emerald stroke-green-emerald stroke-3 ' />
+                  ) : (
+                    <AiOutlineStar className='h-[2.5rem] w-[2.5rem] fill-green-emerald stroke-green-emerald stroke-3 ' />
+                  )
+                )}
               </div>
             </div>
           </div>
