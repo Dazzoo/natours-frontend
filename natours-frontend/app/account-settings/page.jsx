@@ -13,28 +13,11 @@ function page({}) {
 
   const handleUpload = async () => {
     // Check if an image is selected
+
     if (selectedImage) {
       const formData = new FormData();
-      formData.append('image', selectedImage);
+      formData.append('photo', selectedImage);
       usersApi.updateUserImage(formData);
-
-      //   try {
-      //     // Make an API request to upload the image
-      //     const response = await fetch('/api/upload', {
-      //       method: 'POST',
-      //       body: formData,
-      //     });
-
-      //     if (response.ok) {
-      //       // Image uploaded successfully
-      //       console.log('Image uploaded successfully');
-      //     } else {
-      //       // Handle error
-      //       console.error('Image upload failed');
-      //     }
-      //   } catch (error) {
-      //     console.error('Error uploading image:', error);
-      //   }
     } else {
       console.warn('No image selected');
     }

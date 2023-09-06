@@ -7,9 +7,17 @@ class usersApi extends Api {
 
   async updateUserImage(data) {
     const response = await this.request(() =>
-      this.http.post(`/api/v1/users/update-photo`, {
-        data: data,
-      })
+      this.http.post(
+        '/api/v1/users/update-photo',
+        {
+          data,
+        },
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      )
     );
     if (response) {
       return response.data.data.data;
