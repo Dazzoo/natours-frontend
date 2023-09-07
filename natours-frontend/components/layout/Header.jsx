@@ -9,8 +9,13 @@ export const fetchCache = 'force-no-store';
 
 export async function Header(props) {
   const userInfo = await authApi.getMe(jwtParser());
+  console.log(userInfo);
 
   const user_name = userInfo?.data.name;
+  console.log(userInfo?.data.photo);
+  const user_photo_path = userInfo?.data.photo.path
+    ? `${process.env.API_BASE_URL}/${userInfo?.data.photo.path.replace(/^public\\/, '')}`
+    : null;
 
   return (
     <header className='bg-grey-tundora h-32 pl-20 pr-20 flex justify-between text-[1.6rem] relative font-lato'>
@@ -26,7 +31,7 @@ export async function Header(props) {
         <Image height={35} width={68} src='/img/logo-white.png' />
       </div>
       {user_name ? (
-        <UserInfo user_name={user_name} />
+        <UserInfo user_name={user_name} user_photo_path={user_photo_path} />
       ) : (
         <nav className='flex h-full items-center'>
           <Link

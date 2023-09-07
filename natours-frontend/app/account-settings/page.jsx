@@ -17,7 +17,7 @@ function page({}) {
     if (selectedImage) {
       const formData = new FormData();
       formData.append('photo', selectedImage);
-      usersApi.updateUserImage(formData);
+      await usersApi.updateUserImage(formData);
     } else {
       console.warn('No image selected');
     }

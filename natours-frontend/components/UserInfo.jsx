@@ -5,7 +5,7 @@ import authApi from '@/api/auth/authApi';
 import { useRouter } from 'next/navigation';
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from '@nextui-org/react';
 
-function UserInfo({ user_name }) {
+function UserInfo({ user_name, user_photo_path }) {
   const router = useRouter();
 
   const logout = async () => {
@@ -37,7 +37,7 @@ function UserInfo({ user_name }) {
               width={50}
               height={50}
               alt={'Profile pic'}
-              src={'/img/no-user-image.gif'}
+              src={user_photo_path || '/img/no-user-image.gif'}
             />
           </span>
         </div>
