@@ -85,7 +85,7 @@ function TourCard({ tour, key }) {
             <span className='text-grey-dusty'> rating({tour.ratingsQuantity})</span>
           </div>
         </div>
-        <ButtonGreenSmall name='Details' href={`/tour/${tour.slug}`} />
+        <ButtonGreenSmall value='Details' href={`/tour/${tour.slug}`} />
       </div>
     </div>
   );

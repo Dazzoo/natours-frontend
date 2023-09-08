@@ -9,11 +9,9 @@ export const fetchCache = 'force-no-store';
 
 export async function Header(props) {
   const userInfo = await authApi.getMe(jwtParser());
-  console.log(userInfo);
 
   const user_name = userInfo?.data.name;
-  console.log(userInfo?.data.photo);
-  const user_photo_path = userInfo?.data.photo.path
+  const user_photo_path = userInfo?.data?.photo?.path
     ? `${process.env.API_BASE_URL}/${userInfo?.data.photo.path.replace(/^public\\/, '')}`
     : null;
 

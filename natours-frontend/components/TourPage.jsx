@@ -198,7 +198,7 @@ function TourPage({ tour, reviews }) {
               </div>
             </div>
             <div className=' max-xl:flex-col max-xl:pt-[3rem]'>
-              <ButtonGreenSmall name={'BOOK TOUR NOW!'} href={'/'} />
+              <ButtonGreenSmall value={'BOOK TOUR NOW!'} href={'/'} />
             </div>
           </div>
         </div>

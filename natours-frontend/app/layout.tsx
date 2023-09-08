@@ -1,9 +1,12 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import { createContext, useContext, useState } from 'react';
 import { Inter } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Notify from '@/components/Notify/Notify';
+import authApi from '@/api/auth/authApi';
+import jwtParser from '@/utility/jwtParser';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -12,7 +15,7 @@ export const metadata: Metadata = {
   description: 'Natours | Exciting tours for adventurous people',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
       <head>

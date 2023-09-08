@@ -11,7 +11,7 @@ function UserInfo({ user_name, user_photo_path }) {
   const logout = async () => {
     const res = await authApi.logOut();
     if (res === 'success') {
-      window.location.reload();
+      window.location.href = '/';
     }
   };
 

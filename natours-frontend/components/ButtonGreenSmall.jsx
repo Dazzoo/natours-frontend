@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-function ButtonGreenSmall({ href, onClick, name }) {
+function ButtonGreenSmall({ href, onClick, value }) {
   return (
     <Link
       className='py-[1.25rem] px-[3rem] bg-green-emerald rounded-[10rem] text-white flex self-center 
@@ -9,7 +9,7 @@ function ButtonGreenSmall({ href, onClick, name }) {
       onClick={onClick}
       href={href}
     >
-      {name}
+      {value}
     </Link>
   );
 }
