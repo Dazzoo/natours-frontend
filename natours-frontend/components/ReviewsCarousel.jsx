@@ -26,6 +26,10 @@ function ReviewsCarousel(props) {
     },
   };
 
+  const createPhotoPath = path => {
+    return path ? `${process.env.API_BASE_URL}/${path.replace(/^public\\/, '')}` : null;
+  };
+
   return (
     <div className=' w-[100%] min-h-[40rem] select-none drag-none mr-[20%] relative'>
       <Carousel
@@ -58,7 +62,7 @@ function ReviewsCarousel(props) {
                     className='clip-path-circle'
                     width={50}
                     height={50}
-                    src={'/img/no-user-image.gif'}
+                    src={createPhotoPath(r.user?.photo.path) || '/img/no-user-image.gif'}
                   />
                 </div>
                 <div className='uppercase text-[1.65rem] font-semibold ml-[1rem] pr-[1.5rem]  mt-[1rem]'>
