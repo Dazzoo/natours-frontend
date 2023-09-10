@@ -56,6 +56,24 @@ class authApi extends Api {
       return response.data.status;
     }
   }
+
+  async updateUserInfo(name, email, password) {
+    const response = await this.request(
+      () =>
+        this.http.patch('/api/v1/users/update-info', {
+          name,
+          email,
+          password,
+        }),
+      {
+        notify_success: true,
+        notify_error: true,
+      }
+    );
+    if (response?.data) {
+      return response.data;
+    }
+  }
 }
 
 export default new authApi();
