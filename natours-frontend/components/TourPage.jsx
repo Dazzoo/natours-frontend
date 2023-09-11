@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import ReviewsCarousel from '@/components/ReviewsCarousel';
 import ButtonGreenSmall from '@/components/ButtonGreenSmall';
+import MapBox from '@/components/MapBox';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import { IoLocationOutline } from 'react-icons/io5';
 import { AiOutlineCalendar } from 'react-icons/ai';
@@ -12,6 +13,9 @@ import { IoPersonOutline } from 'react-icons/io5';
 function TourPage({ tour, reviews }) {
   const coverImgUrl = tour => `${process.env.API_BASE_URL}/img/tours/${tour.imageCover}`;
   const RatingAverage = tour => tour.ratingsAverage?.toFixed(2);
+  const createPhotoPath = path => {
+    return path ? `${process.env.API_BASE_URL}/${path.replace(/^public\\/, '')}` : null;
+  };
 
   const startDate = tour => {
     const date = new Date(tour.startDates[0]);
@@ -123,7 +127,7 @@ function TourPage({ tour, reviews }) {
                         className='clip-path-circle'
                         width={50}
                         height={50}
-                        src={'/img/no-user-image.gif'}
+                        src={createPhotoPath(g?.photo.path) || '/img/no-user-image.gif'}
                       />
                     </span>
                     <span className='uppercase text-[1.85rem] font-semibold ml-[1rem] pr-[1.5rem]'>
@@ -164,7 +168,9 @@ function TourPage({ tour, reviews }) {
             src='/img/cycling.jpg'
           />
         </div>
-        <div className=' bg-white-alabaster h-[120rem]  relative top-[-25rem] z-[-1] pt-[25rem] '></div>
+        <div className=' bg-white-alabaster h-[120rem]  relative top-[-25rem] z-[-1] pt-[25rem] '>
+          <MapBox />
+        </div>
         <div className=' bg-white-alabaster h-[40rem]  relative  '>
           <div className='bg-green-emerald-gradient clip-path-card-both  h-[100rem]  relative top-[-65rem] w-[100%]  flex content-center items-center '>
             <div className='   h-[100%]  overflow-y-hidden	'></div>

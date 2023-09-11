@@ -70,8 +70,8 @@ class authApi extends Api {
         notify_error: true,
       }
     );
-    if (response?.data) {
-      return response.data;
+    if (response?.status) {
+      return response.status;
     }
   }
 }

@@ -73,10 +73,10 @@ function page({}) {
     if (!Password) {
       setShowPasswordField(true);
     } else {
-      const res = await authApi.updateUserInfo(UserName, UserEmail, Password);
+      const status = await authApi.updateUserInfo(UserName, UserEmail, Password);
 
-      if (res) {
-        debugger;
+      if (String(status).startsWith('2')) {
+        window.location.reload();
         setInfoChanged(false);
       }
     }
@@ -159,6 +159,15 @@ function page({}) {
                 </span>
               </div>
             </div>
+            <div className='mt-[2rem] w-[30rem] '>
+              {InfoChanged ? (
+                <InputPasswordBasic
+                  setValue={setPassword}
+                  value={Password}
+                  name='Confirm Your Password'
+                />
+              ) : null}
+            </div>
             <div className='mt-[2rem]'>
               {InfoChanged ? (
                 <ButtonSubmitGreenSmall
@@ -167,15 +176,7 @@ function page({}) {
                 />
               ) : null}
             </div>
-            <div className='mt-[2rem] w-[30rem] '>
-              {ShowPasswordField ? (
-                <InputPasswordBasic
-                  setValue={setPassword}
-                  value={Password}
-                  name='Confirm Your Password'
-                />
-              ) : null}
-            </div>
+        
           </>
         )}
       </div>
