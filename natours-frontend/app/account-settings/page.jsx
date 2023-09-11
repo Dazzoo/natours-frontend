@@ -94,7 +94,7 @@ function page({}) {
             <div className='mt-[2rem] '>
               <div className='min-h-[30rem]'>
                 <Image
-                  className='clip-path-circle select-none drag-none '
+                  className='clip-path-circle select-none drag-none w-full h-full'
                   width={300}
                   height={300}
                   alt={'Profile pic'}
@@ -102,7 +102,7 @@ function page({}) {
                 />
               </div>
             </div>
-            <div className='text-[1.2rem] flex flex-col content-center items-center '>
+            <div className='text-[1.2rem] flex flex-col content-center items-center mt-[5rem]'>
               <input
                 className='w-[70%]'
                 type='file'

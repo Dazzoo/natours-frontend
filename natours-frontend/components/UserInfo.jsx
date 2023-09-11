@@ -33,7 +33,7 @@ function UserInfo({ user_name, user_photo_path }) {
           <div className='text-white-alabaster font-normal uppercase mr-[3rem] '>{user_name}</div>
           <span>
             <Image
-              className='clip-path-circle select-none drag-none '
+              className='clip-path-circle select-none drag-none w-full h-full max-w-[50px] max-h-[50px]'
               width={50}
               height={50}
               alt={'Profile pic'}

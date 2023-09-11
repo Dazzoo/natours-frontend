@@ -59,9 +59,9 @@ function ReviewsCarousel(props) {
               <div className=' flex flex-col items-center '>
                 <div className=''>
                   <Image
-                    className='clip-path-circle'
-                    width={50}
-                    height={50}
+                    className='clip-path-circle w-full h-full max-w-[75px] max-h-[75px] '
+                    width={75}
+                    height={75}
                     src={createPhotoPath(r.user?.photo.path) || '/img/no-user-image.gif'}
                   />
                 </div>
