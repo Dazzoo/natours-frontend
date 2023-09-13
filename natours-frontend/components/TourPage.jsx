@@ -148,7 +148,7 @@ function TourPage({ tour, reviews }) {
             </div>
           </div>
         </div>
-        <div className=' h-[30vw] max-md:h-max   w-[100%]  inline-flex flex-row max-md:flex-col clip-path-card-both'>
+        <div className=' h-[30vw] max-md:h-max   w-[100%]  inline-flex flex-row max-md:flex-col clip-path-card-both relative z-[20] bb'>
           <Image
             className='w-[33%] max-md:w-[100%]'
             height={1000}
@@ -168,10 +168,15 @@ function TourPage({ tour, reviews }) {
             src='/img/cycling.jpg'
           />
         </div>
-        <div className=' bg-white-alabaster h-[120rem]  relative top-[-25rem] z-[-1] pt-[25rem] '>
-          <MapBox />
+        <div className=' bg-white-alabaster h-[120rem]  relative top-[-20rem] max-md:top-[-40rem] z-[10] pointer-events-all pt-[0rem]'>
+          <MapBox
+            locations={tour?.locations}
+            className={'h-[100rem] max-md:h-[120rem] overflow-visible pointer-events-all'}
+            boundsPaddingForMobile={40}
+            boundsPadding={300}
+          />
         </div>
-        <div className=' bg-white-alabaster h-[40rem]  relative  '>
+        <div className=' bg-white-alabaster h-[40rem]  relative z-[20]'>
           <div className='bg-green-emerald-gradient clip-path-card-both  h-[100rem]  relative top-[-65rem] w-[100%]  flex content-center items-center '>
             <div className='   h-[100%]  overflow-y-hidden	'></div>
             <ReviewsCarousel reviews={reviews} />
@@ -181,17 +186,17 @@ function TourPage({ tour, reviews }) {
           <div className='box-shadow-bold-x2 w-[80%] max-md:w-[85%] h-[30rem]   rounded-[20px] flex justify-between items-center overflow-hidden	relative px-[5rem] py-[5rem] max-xl:flex-col max-xl:h-auto'>
             <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[100%] flex items-center justify-center ml-[-10rem] relative z-20 select-none drag-none'>
               <div className='bg-green-emerald-gradient clip-path-circle h-[70%] flex items-center justify-center relative '>
-                <img className='w-[70%] max-md:w-[40%]' src='/img/logo-white.png' />
+                <img className='w-[50%] max-md:w-[40%] ' src='/img/logo-white.png' />
               </div>
             </div>
             <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[70%] flex items-center justify-center ml-[-7rem] absolute z-10 select-none drag-none'>
               <div className='bg-white-alabaster clip-path-circle h-[70%] flex items-center justify-center  z-10 left-[0rem] opacity-80'>
-                <img className='w-[70%] max-md:w-[40%] ' src='/img/logo-white.png' />
+                <img className='w-[50%] max-md:w-[40%] ' src='/img/logo-white.png' />
               </div>
             </div>
             <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[70%] flex items-center justify-center ml-[-4rem] absolute z-0 select-none drag-none'>
               <div className='bg-white-alabaster clip-path-circle h-[70%] flex items-center justify-center  z-10 left-[0rem] opacity-80'>
-                <img className='w-[70%] max-md:w-[40%] ' src='/img/logo-white.png' />
+                <img className='w-[50%] max-md:w-[40%]' src='/img/logo-white.png' />
               </div>
             </div>
 
@@ -200,7 +205,7 @@ function TourPage({ tour, reviews }) {
                 What are you waiting for?
               </div>
               <div className='text-[2.5rem] max-2xl:text-[2rem] font-normal  max-xl:text-center'>
-                10 days. 1 adventure. Infinite memories. Make it yours today!
+                {tour.duration} days. 1 adventure. Infinite memories. Make it yours today!
               </div>
             </div>
             <div className=' max-xl:flex-col max-xl:pt-[3rem]'>

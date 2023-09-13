@@ -1,26 +1,67 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import PreloaderCycling from '@/components/preloaders/PreloaderCycling';
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
-const MapBox = () => {
+const MapBox = ({ locations, className, boundsPadding, boundsPaddingForMobile }) => {
   const mapContainer = useRef(null);
+  const map = useRef(null);
+  // const [lng, setLng] = useState(-70.9);
+  // const [lat, setLat] = useState(42.35);
+  // const [zoom, setZoom] = useState(9);
 
   useEffect(() => {
-    mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
-
-    const map = new mapboxgl.Map({
+    if (map.current) return; // initialize map only once
+    map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/light-v11',
-      center: [-74.5, 40], // Replace with your desired center coordinates
-      zoom: 9, // Adjust the zoom level as needed
+      // center: [lng, lat],
+      // zoom: zoom,
+    });
+    // map.current.on('move', () => {
+    //   setLng(map.current.getCenter().lng.toFixed(4));
+    //   setLat(map.current.getCenter().lat.toFixed(4));
+    //   setZoom(map.current.getZoom().toFixed(2));
+    // });
+
+    const bounds = new mapboxgl.LngLatBounds();
+
+    locations.map(l => {
+      bounds.extend(l.coordinates);
+    });
+
+    const mobilePadding =
+      window.innerWidth < 768 && boundsPaddingForMobile ? boundsPaddingForMobile : null;
+
+    map.current.fitBounds(bounds, {
+      padding: mobilePadding || boundsPadding, // You can adjust the padding as needed
+    });
+
+    locations.map(l => {
+      new mapboxgl.Marker().setLngLat(l.coordinates).addTo(map.current);
     });
 
     return () => {
-      map.remove(); // Cleanup when the component unmounts
+      map.current.remove(); // Cleanup when the component unmounts
     };
   }, []);
 
-  return <div ref={mapContainer} style={{ height: '500px', width: '100%' }} />;
+  return (
+    <>
+      {!locations?.length > 0 ? (
+        <div className='mt-[30vh]'>
+          <PreloaderCycling />
+        </div>
+      ) : (
+        <div>
+          <div ref={mapContainer} className={`${className} min-h-[50rem] w-[100%]`} />
+          {/* <div className='absolute top-[35rem]'>{window.innerWidth}</div> */}
+        </div>
+      )}
+    </>
+  );
 };
 
 export default MapBox;
