@@ -112,6 +112,9 @@ html {
   html {
     font-size: 52.5%;
   }
+  .max-md-clip-path-card {
+    clip-path: polygon(0 0, 100% 0, 100% 83%, 0 98%);
+  }
 }
 @media (max-width: 1024px) {
   /* lg */

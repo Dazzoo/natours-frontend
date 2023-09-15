@@ -41,11 +41,11 @@ function TourPage({ tour, reviews }) {
           <div className='flex w-[100%] justify-center text-white-alabaster'>
             <div className='absolute z-20 top-[16%] max-sm:top-[8%] max-lg:top-[11%] w-[55rem] max-sm:w-[30rem] text-center '>
               <h1 className='text-[5.5rem] max-sm:text-[3rem] '>
-                <span className='  bg-green-emerald-gradient-85 box-decoration-clone py-[1rem] px-[1.5rem] uppercase'>
+                <span className='  bg-green-emerald-gradient-85 box-decoration-clone py-[1rem] px-[1.5rem] uppercase '>
                   {tour.name}&nbsp;tour
                 </span>
               </h1>
-              <div className='flex justify-around  absolute w-[100%]   text-[1.8rem] max-sm-text-[1rem] uppercase font-semibold	p-[3rem]'>
+              <div className='flex justify-around  absolute w-[100%] text-[1.8rem] max-sm-text-[1rem] uppercase font-semibold	py-[3rem]'>
                 <div className=''>
                   <span className='flex items-center'>
                     <AiOutlineClockCircle className='h-[3rem] w-[3rem] ' />
@@ -148,7 +148,7 @@ function TourPage({ tour, reviews }) {
             </div>
           </div>
         </div>
-        <div className=' h-[30vw] max-md:h-max   w-[100%]  inline-flex flex-row max-md:flex-col clip-path-card-both relative z-[20] bb'>
+        <div className='max-md:hidden h-[30vw] max-md:h-max   w-[100%]  inline-flex flex-row max-md:flex-col clip-path-card-both relative z-[20]'>
           <Image
             className='w-[33%] max-md:w-[100%]'
             height={1000}
@@ -168,11 +168,11 @@ function TourPage({ tour, reviews }) {
             src='/img/cycling.jpg'
           />
         </div>
-        <div className=' bg-white-alabaster h-[120rem]  relative top-[-20rem] max-md:top-[-40rem] z-[10] pointer-events-all pt-[0rem]'>
+        <div className=' bg-white-alabaster h-[120rem]  relative top-[-20rem] max-md:top-[0rem] z-[10] pointer-events-all pt-[0rem] max-md-clip-path-card'>
           <MapBox
             locations={tour?.locations}
-            className={'h-[100rem] max-md:h-[120rem] overflow-visible pointer-events-all'}
-            boundsPaddingForMobile={40}
+            className={'h-[100rem] max-md:h-[120rem] pointer-events-all'}
+            boundsPaddingForMobile={100}
             boundsPadding={300}
           />
         </div>

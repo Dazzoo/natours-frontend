@@ -5,8 +5,6 @@ import { Inter } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Notify from '@/components/Notify/Notify';
-import authApi from '@/api/auth/authApi';
-import jwtParser from '@/utility/jwtParser';
 
 const inter = Inter({ subsets: ['latin'] });
 

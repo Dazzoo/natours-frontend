@@ -5,6 +5,9 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import PreloaderCycling from '@/components/preloaders/PreloaderCycling';
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
+export const revalidate = true;
+export const dynamic = 'auto';
+
 const MapBox = ({ locations, className, boundsPadding, boundsPaddingForMobile }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -13,12 +16,12 @@ const MapBox = ({ locations, className, boundsPadding, boundsPaddingForMobile })
   // const [zoom, setZoom] = useState(9);
 
   useEffect(() => {
-    if (map.current) return; // initialize map only once
+    // if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/light-v11',
-      // center: [lng, lat],
-      // zoom: zoom,
+      center: locations[0].coordinates,
+      zoom: 8,
     });
     // map.current.on('move', () => {
     //   setLng(map.current.getCenter().lng.toFixed(4));
@@ -46,7 +49,7 @@ const MapBox = ({ locations, className, boundsPadding, boundsPaddingForMobile })
     return () => {
       map.current.remove(); // Cleanup when the component unmounts
     };
-  }, []);
+  }, [locations]);
 
   return (
     <>
