@@ -33,6 +33,15 @@ function page({}) {
   }, []);
 
   useEffect(() => {
+    if (userInfo?.name && userInfo?.name !== UserName) {
+      setInfoChanged(true);
+    }
+    if (userInfo?.email && userInfo?.email !== UserEmail) {
+      setInfoChanged(true);
+    }
+  }, [UserName, UserEmail]);
+
+  useEffect(() => {
     setUserName(userInfo?.name);
     setUserEmail(userInfo?.email);
   }, [userInfo]);
@@ -76,8 +85,8 @@ function page({}) {
       const status = await authApi.updateUserInfo(UserName, UserEmail, Password);
 
       if (String(status).startsWith('2')) {
-        window.location.reload();
         setInfoChanged(false);
+        window.location.reload();
       }
     }
   };
@@ -98,11 +107,11 @@ function page({}) {
                   width={300}
                   height={300}
                   alt={'Profile pic'}
-                  src={user_photo_path || '/img/no-user-image.gif'}
+                  src={user_photo_path || '/img/no-user-image.jpg'}
                 />
               </div>
             </div>
-            <div className='text-[1.2rem] flex flex-col content-center items-center mt-[5rem]'>
+            <div className='text-[1.2rem] flex flex-col content-center items-center mt-[5rem] max-md:mt-[-2rem]'>
               <input
                 className='w-[70%]'
                 type='file'
@@ -113,10 +122,11 @@ function page({}) {
                 <ButtonSubmitGreenSmall onClick={() => handleUpload()} value={'Update Photo'} />
               </div>
             </div>
-            <div className='text-[2rem] py-[2rem] mt-[5rem] flex justify-between max-w-[35rem] w-[35rem] '>
+            <div className='text-[2rem] py-[2rem] mt-[5rem] flex justify-between max-w-[35rem] w-[35rem] max-md:w-[30rem]'>
               <div className='font-medium text-black select-none'>Name:</div>
-              <div className='relative w-[100%] box-border	'>
+              <div className='relative w-[100%] box-border'>
                 <EditableInput
+                  onBlur={() => setEditUserName(false)}
                   edit={editUserName}
                   setEdit={setEditUserName}
                   value={UserName}
@@ -126,9 +136,6 @@ function page({}) {
                 <span
                   onClick={() => {
                     handleEditUserName();
-                    if (editUserName) {
-                      setInfoChanged(true);
-                    }
                   }}
                   className='absolute left-[105%] inset-y-0 flex items-center justify-center w-min p-[1rem] cursor-pointer'
                 >
@@ -136,10 +143,11 @@ function page({}) {
                 </span>
               </div>
             </div>
-            <div className='text-[2rem] py-[2rem] flex justify-between max-w-[35rem] w-[35rem] '>
+            <div className='text-[2rem] py-[2rem] flex justify-between max-w-[35rem] w-[35rem] max-md:w-[30rem] '>
               <div className='font-medium text-black select-none'>Email:</div>
               <div className='relative w-[100%] box-border	'>
                 <EditableInput
+                  onBlur={() => setEditUserEmail(false)}
                   edit={editUserEmail}
                   setEdit={setEditUserEmail}
                   value={UserEmail}
@@ -149,9 +157,6 @@ function page({}) {
                 <span
                   onClick={() => {
                     handleEditUserEmail();
-                    if (editUserEmail) {
-                      setInfoChanged(true);
-                    }
                   }}
                   className='absolute left-[105%] inset-y-0 flex items-center justify-center w-min p-[1rem] cursor-pointer'
                 >
@@ -176,7 +181,6 @@ function page({}) {
                 />
               ) : null}
             </div>
-        
           </>
         )}
       </div>

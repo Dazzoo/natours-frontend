@@ -94,26 +94,28 @@ html {
   border-color: #f7f7f7 !important;
 }
 
-@media (max-width: 640px) {
-  /* sm */
-
-  html {
-    font-size: 42.5%;
-  }
+@media (max-width: 768px) {
+  /* md */
   .header_logo {
     display: none;
   }
   h1 {
     font-size: 1rem;
   }
-}
-@media (max-width: 768px) {
-  /* md */
   html {
-    font-size: 52.5%;
+    font-size: 52.5% !important;
   }
   .max-md-clip-path-card {
     clip-path: polygon(0 0, 100% 0, 100% 83%, 0 98%);
+  }
+  .Toastify__toast-container {
+    margin-left: auto !important;
+    margin-right: 5vw !important;
+    margin-top: 2rem !important;
+    max-width: 70vw;
+  }
+  .Toastify__toast-body {
+    font-size: 1.8rem !important;
   }
 }
 @media (max-width: 1024px) {
@@ -131,7 +133,7 @@ html {
 @media (min-width: 2560px) {
   /* lg */
   html {
-    font-size: 82.5%;
+    font-size: 82.5% !important;
   }
 }
 

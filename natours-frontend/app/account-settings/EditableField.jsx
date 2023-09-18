@@ -1,11 +1,13 @@
 'use client';
 import React, { useEffect, useState, useRef } from 'react';
 
-function EditableInput({ edit, setEdit, value, setValue, onChange }) {
+function EditableInput({ edit, setEdit, value, setValue, onChange, onBlur }) {
   const inputRef = useRef(null);
 
   const onInputBlur = () => {
-    // setEdit(false);
+    if (onBlur) {
+      onBlur()
+    }
   };
 
   const handleInputChange = event => {
@@ -33,7 +35,7 @@ function EditableInput({ edit, setEdit, value, setValue, onChange }) {
         }}
         className={`${
           !edit ? 'hidden' : ''
-        } text-right bg-transparent border-none focus:outline-none focus:ring-0 box-bordermax-w-[100%]`}
+        } text-right bg-transparent border-none focus:outline-none focus:ring-0 box-bordermax-w-[100%] w-[100%]`}
         type='text'
       />
     </div>
