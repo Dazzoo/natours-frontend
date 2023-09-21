@@ -46,8 +46,8 @@ class authApi extends Api {
     const response = await this.request(() =>
       this.http.get('/api/v1/users/me', { headers: { token: token } })
     );
-    if (response?.data.data) {
-      return response.data.data;
+    if (response?.data.data.data) {
+      return response.data.data.data;
     }
   }
   async logOut() {

@@ -2,10 +2,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation'
 import ButtonSubmitGreenSmall from '@/components/ButtonSubmitGreenSmall';
 import inputErrorHandler from '@/utility/inputErrorHandler';
 import isObjectEmpty from '@/utility/isObjectEmpty';
 import authApi from '@/api/auth/authApi';
+import useUser from '@/hooks/useUser'
 
 function LoginForm(props) {
   const {
@@ -15,13 +17,24 @@ function LoginForm(props) {
     setError,
     watch,
   } = useForm();
+
+  const router = useRouter()
+
+  const { user, mutate, loggedOut, isLoading } = useUser();
+
   const onSubmit = async data => {
     let token = await authApi.Login(data['Email address'], data['Password']);
     if (token) {
       localStorage.setItem('jwt', token);
-      window.location.href = '/';
+      mutate()      
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      router.push('/')
+    }
+  }, [user]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

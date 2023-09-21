@@ -25,8 +25,8 @@ function TourCard({ tour, key }) {
     >
       <div className='clip-path-card before:bg-green-emerald-gradient before:absolute before:w-[100%] before:h-[100%] before:opacity-70 h-[21rem] '>
         <Image
-          width={1000}
-          height={1000}
+          width={500}
+          height={500}
           src={coverImgUrl(tour) || '/img/tour-2-cover.jpg'}
           alt={tour.name}
         />

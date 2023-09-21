@@ -2,11 +2,14 @@
 import React from 'react';
 import Image from 'next/image';
 import authApi from '@/api/auth/authApi';
+import useUser from '@/hooks/useUser'
 import { useRouter } from 'next/navigation';
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from '@nextui-org/react';
 
-function UserInfo({ user_name, user_photo_path }) {
+function AuthHeader({ user_name, user_photo_path }) {
   const router = useRouter();
+
+  const { user, loggedOut, isLoading } = useUser();
 
   const logout = async () => {
     const res = await authApi.logOut();
@@ -67,4 +70,4 @@ function UserInfo({ user_name, user_photo_path }) {
   );
 }
 
-export default UserInfo;
+export default AuthHeader;

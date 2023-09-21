@@ -2,16 +2,19 @@
 import React, { useEffect, useState, useRef } from 'react';
 import usersApi from '@/api/users/usersApi';
 import authApi from '@/api/auth/authApi';
+import { useRouter } from 'next/navigation'
+import useUser from '@/hooks/useUser'
+import Router from "next/router";
 import ButtonSubmitGreenSmall from '@/components/ButtonSubmitGreenSmall';
 import { AiOutlineEdit, AiOutlineCheck } from 'react-icons/ai';
 import Image from 'next/image';
 import PreloaderCycling from '@/components/preloaders/PreloaderCycling';
 import EditableInput from './EditableField';
 import InputPasswordBasic from '@/components/input/InputPasswordBasic';
+import ErrorComponent from '@/components/ErrorComponent'
 
 function page({}) {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [userInfo, setUserInfo] = useState(null);
   const [UserName, setUserName] = useState(null);
   const [UserEmail, setUserEmail] = useState(null);
   const [Password, setPassword] = useState(null);
@@ -21,33 +24,26 @@ function page({}) {
   const [editUserEmail, setEditUserEmail] = useState(false);
   const inputEmailRef = useRef(null);
   const inputUserNameRef = useRef(null);
+  const router = useRouter()
+
+  const { user, loggedOut, isLoading } = useUser();
 
   useEffect(() => {
-    const getUserInfo = async () => {
-      const userInfo = await authApi.getMe();
-      if (userInfo.data) {
-        setUserInfo(userInfo?.data);
-      }
-    };
-    getUserInfo();
-  }, []);
-
-  useEffect(() => {
-    if (userInfo?.name && userInfo?.name !== UserName) {
+    if (user?.name && user?.name !== UserName) {
       setInfoChanged(true);
     }
-    if (userInfo?.email && userInfo?.email !== UserEmail) {
+    if (user?.email && user?.email !== UserEmail) {
       setInfoChanged(true);
     }
   }, [UserName, UserEmail]);
 
   useEffect(() => {
-    setUserName(userInfo?.name);
-    setUserEmail(userInfo?.email);
-  }, [userInfo]);
+    setUserName(user?.name);
+    setUserEmail(user?.email);
+  }, [user]);
 
-  const user_photo_path = userInfo?.photo?.path
-    ? `${process.env.API_BASE_URL}/${userInfo?.photo.path.replace(/^public\\/, '')}`
+  const user_photo_path = user?.photo?.path
+    ? `${process.env.API_BASE_URL}/${user?.photo.path.replace(/^public\\/, '')}`
     : null;
 
   const handleEditUserName = () => {
@@ -91,14 +87,22 @@ function page({}) {
     }
   };
 
+  useEffect(() => {
+    if (loggedOut) {
+      router.push('/login')
+    }
+  }, [user, loggedOut]);
+
+  if (isLoading) {
+    return (
+    <div className='mt-[30vh] h-[100vh]'>
+      <PreloaderCycling />
+    </div>)
+  }
+
   return (
     <div>
       <div className=' min-h-[100vh] p-[5rem] flex items-center flex-col'>
-        {!userInfo ? (
-          <div className='mt-[30vh]'>
-            <PreloaderCycling />
-          </div>
-        ) : (
           <>
             <div className='mt-[2rem] '>
               <div className='min-h-[30rem]'>
@@ -182,7 +186,6 @@ function page({}) {
               ) : null}
             </div>
           </>
-        )}
       </div>
     </div>
   );

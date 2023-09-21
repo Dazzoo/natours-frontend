@@ -36,7 +36,7 @@ function TourPage({ tour, reviews }) {
         </div>
         <div className='rounded-[3px] bg-transperent relative font-lato'>
           <div className='clip-path-card before:bg-green-emerald-gradient before:absolute before:w-[100%] before:h-[100%] before:opacity-80 h-[25%] max-h-[85vh] '>
-            <Image width={2000} height={4000} src={coverImgUrl(tour) || '/img/tour-2-cover.jpg'} />
+            <Image width={3000} height={2000} src={coverImgUrl(tour) || '/img/tour-2-cover.jpg'} />
           </div>
           <div className='flex w-[100%] justify-center text-white-alabaster'>
             <div className='absolute z-20 top-[16%] max-sm:top-[8%] max-lg:top-[11%] w-[55rem] max-sm:w-[30rem] text-center '>

@@ -3,16 +3,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import authApi from '@/api/auth/authApi';
 import jwtParser from '@/utility/jwtParser';
-import UserInfo from '@/components/UserInfo';
+import AuthHeader from '@/components/AuthHeader';
 
 export const fetchCache = 'force-no-store';
 
 export async function Header(props) {
-  const userInfo = await authApi.getMe(jwtParser());
+  const user = await authApi.getMe(jwtParser());
 
-  const user_name = userInfo?.data.name;
-  const user_photo_path = userInfo?.data?.photo?.path
-    ? `${process.env.API_BASE_URL}/${userInfo?.data.photo.path.replace(/^public\\/, '')}`
+  const user_name = user?.name;
+  const user_photo_path = user?.photo?.path
+    ? `${process.env.API_BASE_URL}/${user?.photo.path.replace(/^public\\/, '')}`
     : null;
 
   return (
@@ -29,7 +29,7 @@ export async function Header(props) {
         <Image height={35} width={68} src='/img/logo-white.png' />
       </div>
       {user_name ? (
-        <UserInfo user_name={user_name} user_photo_path={user_photo_path} />
+        <AuthHeader user_name={user_name} user_photo_path={user_photo_path} />
       ) : (
         <nav className='flex h-full items-center'>
           <Link
