@@ -2,17 +2,17 @@ import Reactfrom from 'react';
 import Image from 'next/image';
 import './styles.css';
 
-function PreloaderCycling({}) {
+function PreloaderCycling({className}) {
   return (
-    <div className='text-green-emerald'>
-      <BikeSVG />
+    <div className={`text-green-emerald `}>
+      <BikeSVG className={className} />
     </div>
   );
 }
 
-const BikeSVG = () => (
+const BikeSVG = ({className}) => (
   <svg
-    className='bike'
+    className={`bike ${className}`}
     viewBox='0 0 48 30'
     width='48px'
     height='30px'

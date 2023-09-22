@@ -1,20 +1,28 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import authApi from '@/api/auth/authApi';
 import useUser from '@/hooks/useUser'
+import PreloaderCycling from '@/components/preloaders/PreloaderCycling';
 import { useRouter } from 'next/navigation';
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from '@nextui-org/react';
 
-function AuthHeader({ user_name, user_photo_path }) {
+function AuthHeader() {
   const router = useRouter();
 
-  const { user, loggedOut, isLoading } = useUser();
+  const { user, loggedOut, isLoading, mutate } = useUser();
+
+  const user_name = user?.name;
+  const user_photo_path = user?.photo?.path
+    ? `${process.env.API_BASE_URL}/${user?.photo.path.replace(/^public\\/, '')}`
+    : null;
 
   const logout = async () => {
     const res = await authApi.logOut();
     if (res === 'success') {
-      window.location.href = '/';
+      mutate()
+      router.push('/')
     }
   };
 
@@ -29,6 +37,14 @@ function AuthHeader({ user_name, user_photo_path }) {
     },
   ];
 
+  if (isLoading) {
+    return (
+      <div className=' flex w-[20rem] justify-center items-center'>
+        <PreloaderCycling className={'max-w-[8rem] block'}  />
+      </div>)
+  }
+
+  if (user) {
   return (
     <Dropdown placement='bottom-end'>
       <DropdownTrigger>
@@ -67,7 +83,27 @@ function AuthHeader({ user_name, user_photo_path }) {
         )}
       </DropdownMenu>
     </Dropdown>
-  );
+  )
+  }
+  return (
+    <nav className='flex h-full items-center'>
+      <Link
+        href='/login'
+        className='text-white-alabaster cursor-pointer font-normal uppercase mr-[3rem] hover:translate-y-[-2px] hover-text-shadow-black transition duration-300'
+      >
+        Log in
+      </Link>
+      <Link
+        href='/signup'
+        className='text-white-alabaster cursor-pointer font-normal 
+    uppercase py-[1rem] px-[3rem] border-solid 
+    border border-current rounded-[10rem] hover:bg-white-alabaster hover:text-grey-boulder hover:border-grey-boulder hover:translate-y-[-2px] transition duration-300'
+      >
+        Sign up
+      </Link>
+    </nav>
+  )
+
 }
 
 export default AuthHeader;
