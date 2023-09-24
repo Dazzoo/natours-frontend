@@ -94,6 +94,28 @@ html {
   border-color: #f7f7f7 !important;
 }
 
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-flex; /* Use inline-flex to center vertically */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  /* Add any other styles you want */
+}
+
+/* Hide the default file input text */
+input[type="file"]::-webkit-file-upload-button {
+  display: none;
+}
+
+/* Style the custom label on hover */
+.custom-file-upload:hover {
+  background-color: #e9e9e9;
+}
+
 @media (max-width: 768px) {
   /* md */
   .header_logo {

@@ -117,9 +117,9 @@ function page({}) {
                 />
               </div>
             </div>
-            <div className='text-[1.2rem] flex flex-col content-center items-center mt-[5rem] max-md:mt-[-2rem]'>
+            <div className='text-[1.2rem]  flex flex-col content-center items-center mt-[5rem] max-md:mt-[-2rem] '>
               <input
-                className='w-[70%]'
+                className=' custom-file-upload text-green-emerald text-[1.6rem] bb w-[14rem]'
                 type='file'
                 accept='image/*'
                 onChange={handleImageChange}
