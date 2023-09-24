@@ -3,9 +3,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation'
-import ButtonSubmitGreenSmall from '@/components/ButtonSubmitGreenSmall';
+import ButtonSubmitGreenSmall from '@/components/buttons/ButtonSubmitGreenSmall';
 import inputErrorHandler from '@/utility/inputErrorHandler';
-import isObjectEmpty from '@/utility/isObjectEmpty';
 import authApi from '@/api/auth/authApi';
 import useUser from '@/hooks/useUser'
 

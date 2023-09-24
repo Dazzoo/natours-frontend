@@ -85,6 +85,7 @@ function AuthHeader() {
     </Dropdown>
   )
   }
+  
   return (
     <nav className='flex h-full items-center'>
       <Link

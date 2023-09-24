@@ -33,7 +33,6 @@ class authApi extends Api {
           password,
         }),
       {
-        notify_success: true,
         notify_error: true,
       }
     );

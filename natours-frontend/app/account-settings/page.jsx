@@ -5,7 +5,7 @@ import authApi from '@/api/auth/authApi';
 import { useRouter } from 'next/navigation'
 import useUser from '@/hooks/useUser'
 import Router from "next/router";
-import ButtonSubmitGreenSmall from '@/components/ButtonSubmitGreenSmall';
+import ButtonSubmitGreenSmall from '@/components/buttons/ButtonSubmitGreenSmall';
 import { AiOutlineEdit, AiOutlineCheck } from 'react-icons/ai';
 import Image from 'next/image';
 import PreloaderCycling from '@/components/preloaders/PreloaderCycling';
@@ -29,10 +29,12 @@ function page({}) {
   const { user, loggedOut, isLoading } = useUser();
 
   useEffect(() => {
-    if (user?.name && user?.name !== UserName) {
+    if (user?.name && UserName && user?.name !== UserName) {
+      debugger
       setInfoChanged(true);
     }
-    if (user?.email && user?.email !== UserEmail) {
+    if (user?.email && UserEmail && user?.email !== UserEmail) {
+      debugger
       setInfoChanged(true);
     }
   }, [UserName, UserEmail]);

@@ -1,6 +1,6 @@
 import React from 'react';
-import TourPage from '@/components/TourPage';
 import toursApi from '@/api/tours/toursApi';
+import TourPage from './TourPage'
 import reviewsApi from '@/api/reviews/reviewsApi';
 import jwtParser from '@/utility/jwtParser';
 

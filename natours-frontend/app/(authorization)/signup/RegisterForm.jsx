@@ -2,7 +2,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
-import ButtonSubmitGreenSmall from '@/components/ButtonSubmitGreenSmall';
+import ButtonSubmitGreenSmall from '@/components/buttons/ButtonSubmitGreenSmall';
 import inputErrorHandler from '@/utility/inputErrorHandler';
 import authApi from '@/api/auth/authApi';
 import { useRouter } from 'next/navigation';

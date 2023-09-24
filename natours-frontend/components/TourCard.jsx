@@ -4,7 +4,7 @@ import { IoLocationOutline } from 'react-icons/io5';
 import { IoFlagOutline } from 'react-icons/io5';
 import { IoPersonOutline } from 'react-icons/io5';
 import { AiOutlineCalendar } from 'react-icons/ai';
-import ButtonGreenSmall from '@/components/ButtonGreenSmall';
+import ButtonGreenSmall from '@/components/buttons/ButtonGreenSmall';
 
 function TourCard({ tour, key }) {
   const Difficulty = tour => `${tour.difficulty}-${tour.duration}-days-tour`;

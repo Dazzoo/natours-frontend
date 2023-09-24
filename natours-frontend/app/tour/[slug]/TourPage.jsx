@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import ReviewsCarousel from '@/components/ReviewsCarousel';
-import ButtonGreenSmall from '@/components/ButtonGreenSmall';
+import ReviewsCarousel from './ReviewsCarousel';
+import ButtonGreenSmall from '@/components/buttons/ButtonGreenSmall';
 import MapBox from '@/components/MapBox';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import { IoLocationOutline } from 'react-icons/io5';

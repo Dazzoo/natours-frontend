@@ -1,8 +1,11 @@
 import Image from 'next/image';
+import useSWR from "swr";
 import TourCard from '@/components/TourCard';
 import toursApi from '@/api/tours/toursApi';
 
 export default async function Home(props) {
+  // const { data: tours, error } = useSWR('getTours', async () => await toursApi.getTours())
+
   const tours = await toursApi.getTours();
 
   return (
