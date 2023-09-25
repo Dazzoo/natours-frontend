@@ -8,6 +8,7 @@ import PreloaderCycling from '@/components/preloaders/PreloaderCycling';
 import { useRouter } from 'next/navigation';
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from '@nextui-org/react';
 
+
 function AuthHeader() {
   const router = useRouter();
 
@@ -29,7 +30,19 @@ function AuthHeader() {
   const items = [
     {
       key: 'account_settings',
-      label: 'Account settings',
+      label: 'Settings',
+    },
+    {
+      key: 'my_bookings',
+      label: 'My Bookings',
+    },
+    {
+      key: 'my_reviews',
+      label: 'My Reviews',
+    },
+    {
+      key: 'billing',
+      label: 'Billing',
     },
     {
       key: 'logout',
@@ -65,17 +78,17 @@ function AuthHeader() {
         aria-label='Dynamic Actions'
         items={items}
         className={
-          'p-[0.5rem] rounded-[10px] bg-white-alabaster border-2 border-grey-dusty boder-solid'
+          '  box-shadow-bold bg-grey-tundora rounded-[2px] mt-[-1rem]'
         }
       >
         {item => (
           <DropdownItem
             key={item.key}
             className={
-              'bg-white-alabaster text-[2rem] w-[100%] p-[1rem] [&:not(:first-child)]:mt-[0.5rem] border-white-alabaster'
+              'dropdown-item  text-[2rem] text-white-alabaster w-[100%] py-[1rem] px-[3rem] [&:not(:first-child)]:mt-[0.5rem] hover:bg-grey-tundora-lighter'
             }
             onClick={
-              item.key === 'logout' ? () => logout() : () => router.push('/account-settings')
+              item.key === 'logout' ? () => logout() : () => router.push(`/${item.key}`)
             }
           >
             {item.label}

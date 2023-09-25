@@ -34,7 +34,7 @@ html {
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.1);
 }
 .box-shadow-bold {
-  box-shadow: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.1)!important;
 }
 .box-shadow-bold-x2 {
   box-shadow: 0 2.5rem 6rem 4rem rgba(0, 0, 0, 0.12) !important;
@@ -104,6 +104,10 @@ html {
   cursor: pointer;
   background-color: #f9f9f9;
   /* Add any other styles you want */
+}
+
+.dropdown-item {
+    outline: none!important;
 }
 
 /* Hide the default file input text */

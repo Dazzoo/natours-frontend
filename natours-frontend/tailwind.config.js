@@ -18,6 +18,7 @@ module.exports = {
       },
       backgroundColor: {
         'white-alabaster': '#f7f7f7',
+        'white-ghost': '#f9f9f9',
         'grey-concrete': '#f2f2f2',
       },
       colors: {
