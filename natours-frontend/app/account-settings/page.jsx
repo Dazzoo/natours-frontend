@@ -12,6 +12,9 @@ import PreloaderCycling from '@/components/preloaders/PreloaderCycling';
 import EditableInput from './EditableField';
 import InputPasswordBasic from '@/components/input/InputPasswordBasic';
 import ErrorComponent from '@/components/ErrorComponent'
+import TitleH1 from '@/components/titles/TitleH1'
+import TitleH2 from '@/components/titles/TitleH2'
+
 
 function page({}) {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -22,6 +25,9 @@ function page({}) {
   const [InfoChanged, setInfoChanged] = useState(false);
   const [editUserName, setEditUserName] = useState(false);
   const [editUserEmail, setEditUserEmail] = useState(false);
+  const [currentPasswordUpdate, setCurrentPasswordUpdate] = useState(null);
+  const [newPasswordUpdate, setNewPasswordUpdate] = useState(null);
+  const [confirmPasswordUpdate, setConfirmPasswordUpdate] = useState(null);
   const inputEmailRef = useRef(null);
   const inputUserNameRef = useRef(null);
   const router = useRouter()
@@ -60,6 +66,10 @@ function page({}) {
     const file = event.target.files[0];
     setSelectedImage(file);
   };
+
+  const handleUpdatePassword = () => {
+    alert('update password')
+  }
 
   const handleUpload = async () => {
     // Check if an image is selected
@@ -104,8 +114,12 @@ function page({}) {
 
   return (
     <div>
-      <div className=' min-h-[100vh] p-[5rem] flex items-center flex-col'>
+      <div className=' min-h-[100vh] p-[5rem] flex items-center flex-col relative'>
           <>
+          <TitleH1
+                className={'mb-[3.5rem]'}
+                value='Your account settings'
+            />
             <div className='mt-[2rem] '>
               <div className='min-h-[30rem]'>
                 <Image
@@ -170,24 +184,59 @@ function page({}) {
                 </span>
               </div>
             </div>
-            <div className='mt-[2rem] w-[30rem] '>
-              {InfoChanged ? (
+            {InfoChanged ? 
+            <div className='absolute bottom-[0px]' >
+              <div className='mt-[2rem] w-[30rem] '>
                 <InputPasswordBasic
                   setValue={setPassword}
                   value={Password}
                   name='Confirm Your Password'
                 />
-              ) : null}
-            </div>
-            <div className='mt-[2rem]'>
-              {InfoChanged ? (
+              </div>
+            <div className='mt-[2rem] flex justify-center'>
                 <ButtonSubmitGreenSmall
                   onClick={() => handleSaveChanges()}
                   value={'Save Changes'}
                 />
-              ) : null}
             </div>
+            </div> 
+            : null}
+            
           </>
+      </div>
+      <div className=' flex flex-col items-center p-[5rem] border-t-2	border-grey-tundora border-solid' >
+            <TitleH2
+                className={'mb-[2rem]'}
+                value='Password change'
+            />
+              <div className='mt-[3rem] w-[30rem] '>
+                <InputPasswordBasic
+                  setValue={setCurrentPasswordUpdate}
+                  value={currentPasswordUpdate}
+                  name='Current password'
+                />
+              </div>
+              <div className='mt-[3rem] w-[30rem] '>
+                <InputPasswordBasic
+                  setValue={setNewPasswordUpdate}
+                  value={newPasswordUpdate}
+                  name='New Password'
+                />
+              </div>
+              <div className='mt-[3rem] w-[30rem] '>
+                <InputPasswordBasic
+                  setValue={setConfirmPasswordUpdate}
+                  value={confirmPasswordUpdate}
+                  name='Confirm Your New Password'
+                />
+              </div>
+              <div className='mt-[3rem] flex justify-center'>
+                <ButtonSubmitGreenSmall
+                  onClick={() => handleUpdatePassword()}
+                  value={'Update password'}
+                />
+            </div>
+            
       </div>
     </div>
   );

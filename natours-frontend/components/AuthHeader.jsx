@@ -29,15 +29,15 @@ function AuthHeader() {
 
   const items = [
     {
-      key: 'account_settings',
+      key: 'account-settings',
       label: 'Settings',
     },
     {
-      key: 'my_bookings',
+      key: 'my-bookings',
       label: 'My Bookings',
     },
     {
-      key: 'my_reviews',
+      key: 'my-reviews',
       label: 'My Reviews',
     },
     {
@@ -78,14 +78,14 @@ function AuthHeader() {
         aria-label='Dynamic Actions'
         items={items}
         className={
-          '  box-shadow-bold bg-grey-tundora rounded-[2px] mt-[-1rem]'
+          '  box-shadow-bold bg-grey-tundora rounded-[8px] mt-[-1rem]'
         }
       >
         {item => (
           <DropdownItem
             key={item.key}
             className={
-              'dropdown-item  text-[2rem] text-white-alabaster w-[100%] py-[1rem] px-[3rem] [&:not(:first-child)]:mt-[0.5rem] hover:bg-grey-tundora-lighter'
+              'dropdown-item  text-[2rem] text-white-alabaster w-[100%] py-[1rem] px-[3rem] [&:not(:first-child)]:mt-[0.5rem] hover:bg-grey-tundora-lighter rounded-[8px]'
             }
             onClick={
               item.key === 'logout' ? () => logout() : () => router.push(`/${item.key}`)

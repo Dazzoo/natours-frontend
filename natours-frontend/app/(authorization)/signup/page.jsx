@@ -1,13 +1,15 @@
 import React from 'react';
 import RegisterForm from './RegisterForm'
 import LogRegLayout from '@/components/layout/LogRegLayout';
+import TitleH2 from '@/components/titles/TitleH2'
 
 function page(props) {
   return (
     <LogRegLayout>
-      <h2 className='uppercase font-bold	text-[2.25rem] bg-green-emerald-gradient bg-clip-text text-transparent mb-[3.5rem]'>
-        Create your account!
-      </h2>
+      <TitleH2
+        className={'mb-[3.5rem]'}
+        value='Create your account!'
+      />
       <RegisterForm/>
     </LogRegLayout>
   );
