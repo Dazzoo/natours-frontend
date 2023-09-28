@@ -2,18 +2,17 @@
 import React, { useEffect, useState, useRef } from 'react';
 import usersApi from '@/api/users/usersApi';
 import authApi from '@/api/auth/authApi';
-import { useRouter } from 'next/navigation'
 import useUser from '@/hooks/useUser'
-import Router from "next/router";
+import { useRouter } from 'next/navigation'
 import ButtonSubmitGreenSmall from '@/components/buttons/ButtonSubmitGreenSmall';
 import { AiOutlineEdit, AiOutlineCheck } from 'react-icons/ai';
 import Image from 'next/image';
 import PreloaderCycling from '@/components/preloaders/PreloaderCycling';
 import EditableInput from './EditableField';
 import InputPasswordBasic from '@/components/input/InputPasswordBasic';
-import ErrorComponent from '@/components/ErrorComponent'
 import TitleH1 from '@/components/titles/TitleH1'
-import TitleH2 from '@/components/titles/TitleH2'
+import { useForm } from "react-hook-form";
+import PasswordChange from './PasswordChange'
 
 
 function page({}) {
@@ -25,22 +24,18 @@ function page({}) {
   const [InfoChanged, setInfoChanged] = useState(false);
   const [editUserName, setEditUserName] = useState(false);
   const [editUserEmail, setEditUserEmail] = useState(false);
-  const [currentPasswordUpdate, setCurrentPasswordUpdate] = useState(null);
-  const [newPasswordUpdate, setNewPasswordUpdate] = useState(null);
-  const [confirmPasswordUpdate, setConfirmPasswordUpdate] = useState(null);
   const inputEmailRef = useRef(null);
   const inputUserNameRef = useRef(null);
   const router = useRouter()
 
-  const { user, loggedOut, isLoading } = useUser();
+  const { register, handleSubmit, formState: { errors }  } = useForm();
+  const { user, loggedOut, isLoading, mutate } = useUser();
 
   useEffect(() => {
     if (user?.name && UserName && user?.name !== UserName) {
-      debugger
       setInfoChanged(true);
     }
     if (user?.email && UserEmail && user?.email !== UserEmail) {
-      debugger
       setInfoChanged(true);
     }
   }, [UserName, UserEmail]);
@@ -67,9 +62,6 @@ function page({}) {
     setSelectedImage(file);
   };
 
-  const handleUpdatePassword = () => {
-    alert('update password')
-  }
 
   const handleUpload = async () => {
     // Check if an image is selected
@@ -86,11 +78,11 @@ function page({}) {
     }
   };
 
-  const handleSaveChanges = async () => {
-    if (!Password) {
+  const handleSaveChanges = async (data) => {
+    if (!data['Confirm Your Password']) {
       setShowPasswordField(true);
     } else {
-      const status = await authApi.updateUserInfo(UserName, UserEmail, Password);
+      const status = await authApi.updateUserInfo(UserName, UserEmail, data['Confirm Your Password']);
 
       if (String(status).startsWith('2')) {
         setInfoChanged(false);
@@ -114,7 +106,7 @@ function page({}) {
 
   return (
     <div>
-      <div className=' min-h-[100vh] p-[5rem] flex items-center flex-col relative'>
+      <div className='p-[5rem] flex items-center flex-col relative'>
           <>
           <TitleH1
                 className={'mb-[3.5rem]'}
@@ -184,60 +176,37 @@ function page({}) {
                 </span>
               </div>
             </div>
+            <div className='min-h-[5rem] my-[2rem] w-[50rem]  ' >
             {InfoChanged ? 
-            <div className='absolute bottom-[0px]' >
-              <div className='mt-[2rem] w-[30rem] '>
+              <form onSubmit={handleSubmit(handleSaveChanges)}>
+              <div className=' inline-flex w-[100%] justify-between' >
+              <span className='w-[30rem] '>
                 <InputPasswordBasic
                   setValue={setPassword}
                   value={Password}
+                  required={true}
+                  register={register}
+                  errors={errors}
+                  pattern_value={/.{8,}/}
+                  pattern_message={'At least 8 characters is required'}
                   name='Confirm Your Password'
                 />
+              </span>
+              <span className=' ml-[2rem]'>
+                  <ButtonSubmitGreenSmall
+                    value={'Save Changes'}
+                  />
+              </span>
               </div>
-            <div className='mt-[2rem] flex justify-center'>
-                <ButtonSubmitGreenSmall
-                  onClick={() => handleSaveChanges()}
-                  value={'Save Changes'}
-                />
-            </div>
-            </div> 
+              </form>
+
             : null}
+            </div> 
+
             
           </>
       </div>
-      <div className=' flex flex-col items-center p-[5rem] border-t-2	border-grey-tundora border-solid' >
-            <TitleH2
-                className={'mb-[2rem]'}
-                value='Password change'
-            />
-              <div className='mt-[3rem] w-[30rem] '>
-                <InputPasswordBasic
-                  setValue={setCurrentPasswordUpdate}
-                  value={currentPasswordUpdate}
-                  name='Current password'
-                />
-              </div>
-              <div className='mt-[3rem] w-[30rem] '>
-                <InputPasswordBasic
-                  setValue={setNewPasswordUpdate}
-                  value={newPasswordUpdate}
-                  name='New Password'
-                />
-              </div>
-              <div className='mt-[3rem] w-[30rem] '>
-                <InputPasswordBasic
-                  setValue={setConfirmPasswordUpdate}
-                  value={confirmPasswordUpdate}
-                  name='Confirm Your New Password'
-                />
-              </div>
-              <div className='mt-[3rem] flex justify-center'>
-                <ButtonSubmitGreenSmall
-                  onClick={() => handleUpdatePassword()}
-                  value={'Update password'}
-                />
-            </div>
-            
-      </div>
+      <PasswordChange mutate={mutate} />
     </div>
   );
 }

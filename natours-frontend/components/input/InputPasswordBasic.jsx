@@ -1,7 +1,8 @@
-import React from 'react';
-// import { useForm } from 'react-hook-form';
+'use client'
+import React, { useEffect } from 'react';
+import { ErrorMessage } from "@hookform/error-message";
 
-function InputPasswordBasic({ name, value, setValue }) {
+function InputPasswordBasic({ name, value, setValue, type, required, id, pattern_value, pattern_message, register, errors }) {
   //   const {
   //     register,
   //     handleSubmit,
@@ -16,23 +17,37 @@ function InputPasswordBasic({ name, value, setValue }) {
     setValue(value);
   };
 
+
   return (
-    <div>
-      <label className=' text-[1.6rem] font-bold mb-[0.75rem]'></label>
+    <div className='relative' >
+      <label className=' text-[1.5rem] font-bold absolute bottom-[100%]'>{value ? name : null}</label>
       <input
-        className={`bg-grey-concrete font-lato input-auth input-auth-valid-focus w-[100%]`}
-        type='password'
-        value={value} // Set the input value to the userName state
+        className={`bg-grey-concrete font-lato input-auth w-[100%] ${errors[name]?.type ? 'input-auth-error-focus' : 'input-auth-valid-focus'}`}
+        type={type}
+        id={id}
+        required={required}
+        value={value} 
         onChange={e => {
           handleInputChange(e);
           // onChange();
         }}
         placeholder={name}
-        // {...register('Password', {
-        //   required: true,
-        //   min: 3,
-        // })}
+        {...register(`${name}`, {
+          pattern: {
+            value: pattern_value,
+            message: pattern_message // JS only: <p>error message</p> TS only support string
+          }
+        })}
+       
       />
+      <div className='absolute top-[100%] text-red-error font-medium text-[1.5rem]' >
+      <ErrorMessage
+        errors={errors}
+        name={name}
+        render={({ message }) => <p>{message}</p>}
+      />
+      </div>
+      
     </div>
   );
 }

@@ -22,6 +22,24 @@ class usersApi extends Api {
       return response.status;
     }
   }
+
+  async updateUserPassword(password, passwordNew, passwordConfirmNew) {
+    const response = await this.request(
+      () =>
+        this.http.patch('/api/v1/users/update-password', {
+          password,
+          passwordNew,
+          passwordConfirmNew
+        }),
+      {
+        notify_success: true,
+        notify_error: true,
+      }
+    );
+    if (response?.status) {
+      return response.status;
+    }
+  }
 }
 
 export default new usersApi();
