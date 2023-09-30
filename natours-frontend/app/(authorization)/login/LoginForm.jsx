@@ -39,7 +39,6 @@ function LoginForm(props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className='flex flex-col mb-[2.5rem] relative'>
-        <label className=' text-[1.6rem] font-bold mb-[0.75rem]'>Email address</label>
         <InputBasic
                   type="text"
                   required={true}
@@ -47,13 +46,12 @@ function LoginForm(props) {
                   register={register}
                   pattern_value={/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}
                   pattern_message={'Wrong email format'}
+                  label={true}
                   name='Email address'
                 />
-        
       </div>
 
       <div className='flex flex-col mb-[2.5rem] relative'>
-        <label className=' text-[1.6rem] font-bold mb-[0.75rem]'>Password</label>
         <InputBasic
                   type="password"
                   required={true}
@@ -61,6 +59,7 @@ function LoginForm(props) {
                   register={register}
                   pattern_value={/.{8,}/}
                   pattern_message={'At least 8 characters is required'}
+                  label={true}
                   name='Password'
                 />
       </div>

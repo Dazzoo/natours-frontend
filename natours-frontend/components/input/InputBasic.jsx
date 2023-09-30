@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { ErrorMessage } from "@hookform/error-message";
 
-function InputBasic({ name, type, required, id, pattern_value, pattern_message, register, errors, validate }) {
+function InputBasic({ name, type, required, id, pattern_value, pattern_message, register, errors, validate, label }) {
 
   const [value, setValue] = useState(null)
     
@@ -19,7 +19,7 @@ function InputBasic({ name, type, required, id, pattern_value, pattern_message, 
 
   return (
     <div className='relative' >
-      {/* <label className=' text-[1.5rem] font-bold absolute bottom-[100%]'>{'value' ? name : null}</label> */}
+      {label ? <label className=' text-[1.6rem] font-bold mb-[0.75rem]'>{name}</label> : null }
       <input
         className={`bg-grey-concrete font-lato input-auth w-[100%] ${errors[name]?.type || validByPattern(value) ? 'input-auth-error-focus' : 'input-auth-valid-focus'}`}
         type={type}
