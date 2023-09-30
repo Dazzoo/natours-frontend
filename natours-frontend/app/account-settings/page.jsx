@@ -9,7 +9,7 @@ import { AiOutlineEdit, AiOutlineCheck } from 'react-icons/ai';
 import Image from 'next/image';
 import PreloaderCycling from '@/components/preloaders/PreloaderCycling';
 import EditableInput from './EditableField';
-import InputPasswordBasic from '@/components/input/InputPasswordBasic';
+import InputBasic from '@/components/input/InputBasic';
 import TitleH1 from '@/components/titles/TitleH1'
 import { useForm } from "react-hook-form";
 import PasswordChange from './PasswordChange'
@@ -181,8 +181,9 @@ function page({}) {
               <form onSubmit={handleSubmit(handleSaveChanges)}>
               <div className=' inline-flex w-[100%] justify-between' >
               <span className='w-[30rem] '>
-                <InputPasswordBasic
+                <InputBasic
                   setValue={setPassword}
+                  type='password'
                   value={Password}
                   required={true}
                   register={register}

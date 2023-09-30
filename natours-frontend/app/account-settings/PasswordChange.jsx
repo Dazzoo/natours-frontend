@@ -6,7 +6,7 @@ import TitleH2 from '@/components/titles/TitleH2'
 import { useForm } from "react-hook-form";
 import { useRouter } from 'next/navigation'
 import ButtonSubmitGreenSmall from '@/components/buttons/ButtonSubmitGreenSmall';
-import InputPasswordBasic from '@/components/input/InputPasswordBasic';
+import InputBasic from '@/components/input/InputBasic';
 
 
 function PasswordChange({mutate}) {
@@ -14,8 +14,12 @@ function PasswordChange({mutate}) {
     const [newPasswordUpdate, setNewPasswordUpdate] = useState(null);
     const [confirmPasswordUpdate, setConfirmPasswordUpdate] = useState(null);
     const router = useRouter()
-    const { register, handleSubmit, formState: { errors }  } = useForm();
+    const { register, handleSubmit, formState: { errors }, watch  } = useForm();
 
+    const validatePasswordMatch = (value) => {
+      const newPassword = watch('New Password'); // Replace 'newPassword' with the actual field name
+      return newPassword === value || 'Passwords do not match';
+    };
 
     const handleUpdatePassword = async (data) => {
         if (data['Current password'] && data['New Password'] && data['Confirm Your New Password']) {
@@ -40,10 +44,8 @@ function PasswordChange({mutate}) {
             />
             <form onSubmit={handleSubmit(handleUpdatePassword)}>
               <div className='mt-[3rem] w-[30rem] '>
-                <InputPasswordBasic
+                <InputBasic
                   id='current-password'
-                  setValue={setCurrentPasswordUpdate}
-                  value={currentPasswordUpdate}
                   type="password"
                   errors={errors}
                   register={register}
@@ -54,9 +56,7 @@ function PasswordChange({mutate}) {
                 />
               </div>
               <div className='mt-[3rem] w-[30rem] '>
-                <InputPasswordBasic
-                  setValue={setNewPasswordUpdate}
-                  value={newPasswordUpdate}
+                <InputBasic
                   type="password"
                   required={true}
                   errors={errors}
@@ -67,15 +67,14 @@ function PasswordChange({mutate}) {
                 />
               </div>
               <div className='mt-[3rem] w-[30rem] '>
-                <InputPasswordBasic
-                  setValue={setConfirmPasswordUpdate}
-                  value={confirmPasswordUpdate}
+                <InputBasic
                   type="password"
                   required={true}
                   errors={errors}
                   register={register}
                   pattern_value={/.{8,}/}
                   pattern_message={'At least 8 characters is required'}
+                  validate={validatePasswordMatch}
                   name='Confirm Your New Password'
                 />
               </div>
