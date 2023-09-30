@@ -7,6 +7,7 @@ import ButtonSubmitGreenSmall from '@/components/buttons/ButtonSubmitGreenSmall'
 import inputErrorHandler from '@/utility/inputErrorHandler';
 import authApi from '@/api/auth/authApi';
 import useUser from '@/hooks/useUser'
+import InputBasic from '@/components/input/InputBasic';
 
 function LoginForm(props) {
   const {
@@ -39,42 +40,29 @@ function LoginForm(props) {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className='flex flex-col mb-[2.5rem] relative'>
         <label className=' text-[1.6rem] font-bold mb-[0.75rem]'>Email address</label>
-        <input
-          className={`bg-grey-concrete font-lato input-auth ${
-            errors['Email address']?.type ? 'input-auth-error-focus' : 'input-auth-valid-focus'
-          }`}
-          type='email'
-          placeholder='Email address'
-          {...register('Email address', {
-            required: true,
-            min: 3,
-          })}
-        />
-        {errors['Email address'] && (
-          <p className='absolute bottom-[-25%] text-[1.4rem] text-orange-burning font-semibold'>
-            {errors['Email address']?.message || inputErrorHandler(errors['Email address']?.type)}
-          </p>
-        )}
+        <InputBasic
+                  type="text"
+                  required={true}
+                  errors={errors}
+                  register={register}
+                  pattern_value={/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}
+                  pattern_message={'Wrong email format'}
+                  name='Email address'
+                />
+        
       </div>
 
       <div className='flex flex-col mb-[2.5rem] relative'>
         <label className=' text-[1.6rem] font-bold mb-[0.75rem]'>Password</label>
-        <input
-          className={`bg-grey-concrete font-lato input-auth ${
-            errors['Password']?.type ? 'input-auth-error-focus' : 'input-auth-valid-focus'
-          }`}
-          type='password'
-          placeholder='Password'
-          {...register('Password', {
-            required: true,
-            min: 3,
-          })}
-        />
-        {errors['Password'] && (
-          <p className='absolute bottom-[-25%] text-[1.4rem] text-orange-burning font-semibold'>
-            {errors['Password']?.message || inputErrorHandler(errors['Password']?.type)}
-          </p>
-        )}
+        <InputBasic
+                  type="password"
+                  required={true}
+                  errors={errors}
+                  register={register}
+                  pattern_value={/.{8,}/}
+                  pattern_message={'At least 8 characters is required'}
+                  name='Password'
+                />
       </div>
 
       <div className='mt-[3rem]'>

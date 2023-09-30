@@ -36,7 +36,7 @@ function InputBasic({ name, type, required, id, pattern_value, pattern_message, 
         })}
        
       />
-      <div className='absolute top-[100%] text-red-error font-medium text-[1.5rem]' >
+      <div className='absolute top-[100%] text-orange-burning font-semibold text-[1.4rem]' >
       <ErrorMessage
         errors={errors}
         name={name}
