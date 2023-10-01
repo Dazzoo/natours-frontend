@@ -18,8 +18,8 @@ export async function Header(props) {
         >
           All tours
         </Link>
-        <div className='ml-[1rem]' >
-        <ThemeToggle />
+        <div className='ml-[2rem] flex self-center' >
+        <ThemeToggle className='scale-150 text-white-alabaster' />
         </div>
       </nav>
       <div className='header_logo flex self-center absolute left-1/2 transform -translate-x-1/2'>

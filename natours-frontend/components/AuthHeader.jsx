@@ -111,7 +111,7 @@ function AuthHeader() {
         href='/signup'
         className='text-white-alabaster cursor-pointer font-normal 
     uppercase py-[1rem] px-[3rem] border-solid 
-    border border-current rounded-[10rem] hover:bg-white-alabaster hover:text-grey-boulder hover:border-grey-boulder hover:translate-y-[-2px] transition duration-300'
+    border border-current rounded-[10rem] hover:bg-white-alabaster-background hover:text-grey-boulder hover:border-grey-boulder hover:translate-y-[-2px] transition duration-300'
       >
         Sign up
       </Link>

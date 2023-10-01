@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --white-alabaster: #ffffff;
+  --white-basic: #ffffff;
+  --white-alabaster-background: #f7f7f7;
+  --white-alabaster-text: #f7f7f7;
+  --grey-tundora: #444;
+  --grey-boulder-text: #777777
+  --grey-dusty-text: #999999
 }
 
 html {
@@ -13,6 +18,7 @@ html {
   font-family: 'Lato', sans-serif;
   color: #777;
   padding: 3rem;
+  background: var(--white-basic);;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;

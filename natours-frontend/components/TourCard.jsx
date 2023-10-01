@@ -8,7 +8,7 @@ import ButtonGreenSmall from '@/components/buttons/ButtonGreenSmall';
 
 function TourCard({ tour, key }) {
   const Difficulty = tour => `${tour.difficulty}-${tour.duration}-days-tour`;
-  const Description = tour => tour.description.slice(0, 80);
+  const Description = tour => tour.description.slice(0, 70);
   const coverImgUrl = tour => `${process.env.API_BASE_URL}/img/tours/${tour.imageCover}`;
   const RatingAverage = tour => tour.ratingsAverage?.toFixed(2);
   const startDate = tour => {
@@ -21,7 +21,7 @@ function TourCard({ tour, key }) {
   return (
     <div
       key={key}
-      className='rounded-[3px]  w-[25%] min-w-[28rem] max-w-[36rem] mx-[3rem] my-[4rem] bg-white box-shadow-standard relative font-lato'
+      className='rounded-[3px] max-h-[50rem]  w-[28%] min-w-[28rem] max-w-[36rem] mx-[3rem] my-[4rem] bg-white-basic box-shadow-standard relative font-lato'
     >
       <div className='clip-path-card before:bg-green-emerald-gradient before:absolute before:w-[100%] before:h-[100%] before:opacity-70 h-[21rem] '>
         <Image
@@ -36,9 +36,9 @@ function TourCard({ tour, key }) {
           {tour.name}
         </span>
       </h3>
-      <div className='mx-[3rem] my-[2.5rem]'>
+      <div className='px-[3rem] py-[2.5rem] bg-white-basic  text-grey-boulder'>
         <div className='uppercase text-[1.2rem] font-bold	text-grey-boulder'>{Difficulty(tour)}</div>
-        <div className='mt-[1rem] text-[1.5rem] italic'>{Description(tour)}...</div>
+        <div className='mt-[1rem] text-[1.5rem] italic '>{Description(tour)}...</div>
         <div className='text-[1.3rem]'>
           <div className='mt-[1rem] flex justify-between '>
             <span className='w-[45%]  inline-flex items-center'>
@@ -70,17 +70,15 @@ function TourCard({ tour, key }) {
           </div>
         </div>
       </div>
-      <div className='bg-white-alabaster py-[2.5rem] px-[3rem] flex justify-between text-[1.4rem]'>
+      <div className='bg-white-alabaster text-grey-boulder py-[2.5rem] px-[3rem] flex justify-between text-[1.4rem]'>
         <div
-          className='
-'
-        >
+          className=''>
           <div>
             <span className=' font-bold'>${tour.price}</span>
             <span className='text-grey-dusty'> per person</span>
           </div>
 
-          <div className='mt-[1rem]'>
+          <div className='mt-[1rem] '>
             <span className=' font-bold'>{RatingAverage(tour)}</span>
             <span className='text-grey-dusty'> rating({tour.ratingsQuantity})</span>
           </div>
