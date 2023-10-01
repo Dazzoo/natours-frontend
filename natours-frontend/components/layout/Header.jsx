@@ -4,6 +4,7 @@ import Image from 'next/image';
 import authApi from '@/api/auth/authApi';
 import jwtParser from '@/utility/jwtParser';
 import AuthHeader from '@/components/AuthHeader';
+import ThemeToggle from '@/components/buttons/ThemeToggle';
 
 export const fetchCache = 'force-no-store';
 
@@ -17,6 +18,9 @@ export async function Header(props) {
         >
           All tours
         </Link>
+        <div className='ml-[1rem]' >
+        <ThemeToggle />
+        </div>
       </nav>
       <div className='header_logo flex self-center absolute left-1/2 transform -translate-x-1/2'>
         <Image height={35} width={68} src='/img/logo-white.png' />

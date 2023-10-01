@@ -17,12 +17,14 @@ module.exports = {
         'orange-red-gradient': 'linear-gradient(to right, #ff7730, #eb4d4b);',
       },
       backgroundColor: {
-        'white-alabaster': '#f7f7f7',
+        // 'white-alabaster': '#f7f7f7',
+        'white-alabaster': 'var(--white-alabaster)',
         'white-ghost': '#f9f9f9',
         'grey-concrete': '#f2f2f2',
       },
       colors: {
-        'white-alabaster': '#f7f7f7',
+        // 'white-alabaster': '#f7f7f7',
+        'white-alabaster': 'var(--white-alabaster)',
         'grey-tundora': '#444',
         'grey-tundora-lighter': '#4d4d4d',
         'green-emerald': '#55C57A',
