@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 function Footer(props) {
   return (
-    <footer className='bg-white-alabaster pt-[6rem] pr-[4rem] pb-[3rem] pl-[4rem] flex justify-between font-lato '>
+    <footer className='bg-white-alabaster-background pt-[6rem] pr-[4rem] pb-[3rem] pl-[4rem] flex justify-between font-lato '>
       <div className=' max-md:pr-[2rem] max-md:m-[auto]'>
         <Image width={150} height={30} src='/img/logo-green.png' />
       </div>

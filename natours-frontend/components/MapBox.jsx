@@ -11,6 +11,7 @@ export const dynamic = 'auto';
 const MapBox = ({ locations, className, boundsPadding, boundsPaddingForMobile }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
+  const savedTheme = typeof window !== 'undefined' && localStorage ? localStorage.getItem('natours-theme') : null;
   // const [lng, setLng] = useState(-70.9);
   // const [lat, setLat] = useState(42.35);
   // const [zoom, setZoom] = useState(9);
@@ -19,7 +20,7 @@ const MapBox = ({ locations, className, boundsPadding, boundsPaddingForMobile })
     // if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/light-v11',
+      style: savedTheme === 'dark' ? 'mapbox://styles/mapbox/dark-v11' : 'mapbox://styles/mapbox/light-v11',
       center: locations[0].coordinates,
       zoom: 8,
     });

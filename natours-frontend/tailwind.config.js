@@ -20,12 +20,11 @@ module.exports = {
         'white-basic': 'var(--white-basic-text)',
         'white-alabaster': 'var(--white-alabaster-background)',
         'white-ghost': '#f9f9f9',
-        'grey-concrete': '#f2f2f2',
+        'grey-concrete': 'var(--grey-concrete-background)',
       },
       colors: {
         'white-basic': 'var(--white-basic-background)',
         'white-alabaster': 'var(--white-alabaster-text)',
-        // 'grey-tundora': '#444',
         'grey-tundora': 'var(--grey-tundora)',
         'grey-tundora-lighter': '#4d4d4d',
         'green-emerald': '#55C57A',
@@ -33,6 +32,7 @@ module.exports = {
         'grey-dusty': 'var(--grey-dusty-text)',
         'orange-burning': '#ff7730',
         'red-error': '#ff0033',
+        'input-basic': "var(--input-text)"
       },
       fontFamily: {
         lato: ['Lato', 'sans-serif'],

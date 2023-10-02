@@ -21,7 +21,7 @@ function InputBasic({ name, type, required, id, pattern_value, pattern_message, 
     <div className='relative' >
       {label ? <label className=' text-[1.6rem] font-bold mb-[0.75rem]'>{name}</label> : null }
       <input
-        className={`bg-grey-concrete font-lato input-auth w-[100%] ${errors[name]?.type || validByPattern(value) ? 'input-auth-error-focus' : 'input-auth-valid-focus'}`}
+        className={`bg-grey-concrete text-input-basic font-lato input-auth w-[100%] ${errors[name]?.type || validByPattern(value) ? 'input-auth-error-focus' : 'input-auth-valid-focus'}`}
         type={type}
         id={id}
         required={required}

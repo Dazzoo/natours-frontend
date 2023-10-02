@@ -3,13 +3,22 @@
 @tailwind utilities;
 
 :root {
+  /* TEXT AND BACKGROUNDS */
   --white-basic: #ffffff;
   --white-alabaster-background: #f7f7f7;
   --white-alabaster-text: #f7f7f7;
   --grey-tundora: #444;
-  --grey-boulder-text: #777777
-  --grey-dusty-text: #999999
-}
+  --grey-boulder-text: #777777;
+  --grey-dusty-text: #999999;
+  --grey-concrete-background: #f2f2f2;
+  /* BOX SHADOWS */
+  --box-shadow-standard: 0 1.5rem 4rem rgba(0, 0, 0, 0.1);
+  --box-shadow-bold: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.1)
+  --box-shadow-bold-x2: 0 2.5rem 6rem 4rem rgba(0, 0, 0, 0.12)
+  --clip-box-shadow-bold-x2: drop-shadow(0rem 2.5rem 6rem rgba(0, 0, 0, 0.25))
+  /* INPUT TEXT */
+  --input-text: inherit
+  }
 
 html {
   font-size: 62.5%;
@@ -18,7 +27,7 @@ html {
   font-family: 'Lato', sans-serif;
   color: #777;
   padding: 3rem;
-  background: var(--white-basic);;
+  background: var(--white-basic);
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -41,16 +50,16 @@ html {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
 .box-shadow-standard {
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.1);
-}
+  box-shadow: var(--box-shadow-standard);
+} 
 .box-shadow-bold {
-  box-shadow: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.1)!important;
+  box-shadow: var(--box-shadow-bold);
 }
 .box-shadow-bold-x2 {
-  box-shadow: 0 2.5rem 6rem 4rem rgba(0, 0, 0, 0.12) !important;
+  box-shadow: var(--box-shadow-bold-x2);
 }
 .clip-box-shadow-bold-x2 {
-  filter: drop-shadow(0rem 2.5rem 6rem rgba(0, 0, 0, 0.25));
+  filter: var(--clip-box-shadow-bold-x2);
 }
 /* .marker {
   border: 1px solid black;
