@@ -11,11 +11,13 @@ import { AiOutlineStar } from 'react-icons/ai';
 import { IoPersonOutline } from 'react-icons/io5';
 
 function TourPage({ tour, reviews }) {
-  const coverImgUrl = tour => `${process.env.API_BASE_URL}/img/tours/${tour.imageCover}`;
+  const coverImgUrl = tour => Buffer.from(tour.imageCover.data.data).toString('base64');
   const RatingAverage = tour => tour.ratingsAverage?.toFixed(2);
   const createPhotoPath = path => {
     return path ? `${process.env.API_BASE_URL}/${path.replace(/^public\\/, '')}` : null;
   };
+
+  console.log('tour.imageCover', coverImgUrl(tour))
 
   const startDate = tour => {
     const date = new Date(tour.startDates[0]);
@@ -36,7 +38,7 @@ function TourPage({ tour, reviews }) {
         </div>
         <div className='rounded-[3px] bg-transperent relative font-lato'>
           <div className='clip-path-card before:bg-green-emerald-gradient before:absolute before:w-[100%] before:h-[100%] before:opacity-80 h-[25%] max-h-[85vh] '>
-            <Image width={3000} height={2000} src={coverImgUrl(tour) || '/img/tour-2-cover.jpg'} />
+            <Image width={3000} height={2000} src={`data:image/png;base64, ${coverImgUrl(tour)}`} />
           </div>
           <div className='flex w-[100%] justify-center text-white-alabaster'>
             <div className='absolute z-20 top-[16%] max-sm:top-[8%] max-lg:top-[11%] w-[55rem] max-sm:w-[30rem] text-center '>
