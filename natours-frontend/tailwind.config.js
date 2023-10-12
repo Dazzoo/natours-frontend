@@ -24,6 +24,7 @@ module.exports = {
       },
       colors: {
         'white-basic': 'var(--white-basic-background)',
+        'black-basic': 'var(--black-basic)',
         'white-alabaster': 'var(--white-alabaster-text)',
         'grey-tundora': 'var(--grey-tundora)',
         'grey-tundora-lighter': '#4d4d4d',

@@ -32,6 +32,7 @@ const ThemeToggle = ({className}) => {
       root.style.setProperty('--grey-dusty-text', '#999999');
       root.style.setProperty('--grey-concrete-background', '#f2f2f2');
       root.style.setProperty('--input-text', 'inherit');
+      root.style.setProperty('--black-basic', '#000000');
       // BOX-SHADOW
       root.style.setProperty('--box-shadow-standard', '0 1.5rem 4rem rgba(0, 0, 0, 0.1)');
       root.style.setProperty('--box-shadow-bold', '0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.1)');
@@ -48,6 +49,7 @@ const ThemeToggle = ({className}) => {
       root.style.setProperty('--grey-dusty-text', '#ffffff');
       root.style.setProperty('--grey-concrete-background', '#272727');
       root.style.setProperty('--input-text', '#e8e6e3e0');
+      root.style.setProperty('--black-basic', '#f7f7f7');
       // BOX-SHADOW
       root.style.setProperty('--box-shadow-standard', '0 1.5rem 4rem rgba(255, 255, 255, 0.1)');
       root.style.setProperty('--box-shadow-bold', '0 2.5rem 8rem 2rem rgba(255, 255, 255, 0.1)');

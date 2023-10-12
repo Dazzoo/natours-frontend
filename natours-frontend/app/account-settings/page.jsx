@@ -135,7 +135,7 @@ function page({}) {
               </div>
             </div>
             <div className='text-[2rem] py-[2rem] mt-[5rem] flex justify-between max-w-[35rem] w-[35rem] max-md:w-[30rem]'>
-              <div className='font-medium text-black select-none'>Name:</div>
+              <div className='font-medium text-black-basic select-none'>Name:</div>
               <div className='relative w-[100%] box-border'>
                 <EditableInput
                   onBlur={() => setEditUserName(false)}
@@ -156,7 +156,7 @@ function page({}) {
               </div>
             </div>
             <div className='text-[2rem] py-[2rem] flex justify-between max-w-[35rem] w-[35rem] max-md:w-[30rem] '>
-              <div className='font-medium text-black select-none'>Email:</div>
+              <div className='font-medium text-black-basic select-none'>Email:</div>
               <div className='relative w-[100%] box-border	'>
                 <EditableInput
                   onBlur={() => setEditUserEmail(false)}
