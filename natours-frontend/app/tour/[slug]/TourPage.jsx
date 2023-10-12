@@ -11,8 +11,8 @@ import { AiOutlineStar } from 'react-icons/ai';
 import { IoPersonOutline } from 'react-icons/io5';
 
 function TourPage({ tour, reviews }) {
-  const coverImgUrl = tour => `data:${tour.imageCover.data.contentType};base64, ${Buffer.from(tour.imageCover.data.data).toString('base64')}`
-  const tourImgUrls = img => `data:${img.data.contentType};base64, ${Buffer.from(img.data.data).toString('base64')}`
+  const coverImgUrl = tour => `${process.env.API_BASE_URL}/img/tours/${tour.imageCover.path}`
+  const tourImgUrls = img => `${process.env.API_BASE_URL}/img/tours/${img.path}`
   const RatingAverage = tour => tour.ratingsAverage?.toFixed(2);
   const createPhotoPath = path => {
     return path ? `${process.env.API_BASE_URL}/${path.replace(/^public\\/, '')}` : null;
@@ -117,7 +117,7 @@ function TourPage({ tour, reviews }) {
                   </div>
                 </div>
               </div>
-              <div className='mt-[7rem] flex flex-col mb-[8rem]'>
+              <div className='mt-[7rem] flex flex-col mb-[8rem] '>
                 <div className='uppercase font-bold max-sm:text-center	text-[2.6rem] bg-green-emerald-gradient bg-clip-text text-transparent mb-[2.5rem] mt-[3rem]'>
                   Your tour guides
                 </div>
@@ -149,10 +149,10 @@ function TourPage({ tour, reviews }) {
             </div>
           </div>
         </div>
-        <div className='max-md:hidden h-[30vw] max-md:h-max   w-[100%]  inline-flex flex-row max-md:flex-col clip-path-card-both relative z-[20]'>
+        <div className='max-md:hidden h-[30vw] max-md:h-max   w-[100%] bb  inline-flex flex-row max-md:flex-col clip-path-card-both relative z-[20]'>
           {tour.images.map(img => (
             <Image
-              className='w-[33%] max-md:w-[100%]'
+              className='w-[34%] max-md:w-[100%]'
               height={1000}
               width={1000}
               src={tourImgUrls(img) || '/img/beach.jpg'}

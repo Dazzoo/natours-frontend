@@ -9,7 +9,7 @@ import ButtonGreenSmall from '@/components/buttons/ButtonGreenSmall';
 function TourCard({ tour, key }) {
   const Difficulty = tour => `${tour.difficulty}-${tour.duration}-days-tour`;
   const Description = tour => tour.description.slice(0, 70);
-  const coverImgUrl = tour => `data:${tour.imageCover.data?.contentType};base64, ${Buffer.from(tour.imageCover.data.data).toString('base64')}`
+  const coverImgUrl = tour => `${process.env.API_BASE_URL}/img/tours/${tour.imageCover.path}`
   const RatingAverage = tour => tour.ratingsAverage?.toFixed(2);
   const startDate = tour => {
     const date = new Date(tour.startDates[0]);

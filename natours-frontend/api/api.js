@@ -6,7 +6,7 @@ class Api {
   constructor() {
     this.http = axios.create({
       baseURL: `${process.env.API_BASE_URL}`,
-      timeout: 10000,
+      timeout: 30000,
       headers: { 'X-Custom-Header': 'foobar' },
       withCredentials: true,
     });
