@@ -27,6 +27,8 @@ function AuthHeader() {
     }
   };
 
+  console.log('user_photo_path', user_photo_path)
+
   const items = [
     {
       key: 'account-settings',
@@ -69,7 +71,7 @@ function AuthHeader() {
               width={50}
               height={50}
               alt={'Profile pic'}
-              src={user_photo_path || '/img/no-user-image.gif'}
+              src={user_photo_path || '/img/no-user-image.jpg'}
             />
           </span>
         </div>

@@ -7,7 +7,6 @@ class toursApi extends Api {
 
   async getTours() {
     const response = await this.request(() => this.http.get('/api/v1/tours'));
-    console.log(response)
     return response.data.data.data;
   }
 

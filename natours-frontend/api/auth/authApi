@@ -90,6 +90,15 @@ class authApi extends Api {
       return response.status;
     }
   }
+  async verifyEmail(emailToken) {
+    const response = await this.request(
+      () =>
+        this.http.get(`/api/v1/users/verifyEmail/${emailToken}`)
+    );
+    if (response) {
+      return response;
+    }
+  }
 }
 
 export default new authApi();

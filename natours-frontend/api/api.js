@@ -27,6 +27,7 @@ class Api {
           toast.error(`${error?.response?.data?.message}`);
         }
       }
+      return error.response
     }
   }
 }
