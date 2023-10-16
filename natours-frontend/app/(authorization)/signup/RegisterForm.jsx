@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 import ButtonSubmitGreenSmall from '@/components/buttons/ButtonSubmitGreenSmall';
@@ -10,6 +10,7 @@ import InputBasic from '@/components/input/InputBasic';
 
 function RegisterForm(props) {
   const { push } = useRouter();
+  const [message, setMessage] = useState(null)
 
   const {
     register,
@@ -26,7 +27,16 @@ function RegisterForm(props) {
       data['Confirm password']
     );
     if (signUp) {
-      push('/login');
+      push('/info/success', { message: `Dear ${data['Your name']},
+
+      Thank you for creating an account with us! To complete the registration process, please verify your email address by clicking on the verification link that has been sent to your email.
+      
+      If you do not see the email in your inbox, please check your spam folder.
+      
+      If you have any questions or need further assistance, please don't hesitate to contact our support team.
+      
+      Best regards, ${process.env.COMPANY_EMAIL}` });
+      
     }
   };
 

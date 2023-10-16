@@ -20,8 +20,8 @@ class authApi extends Api {
         notify_error: true,
       }
     );
-    if (response.data.token) {
-      return response.data.token;
+    if (String(response.status)?.startsWith('2')) {
+      return true;
     }
   }
 
