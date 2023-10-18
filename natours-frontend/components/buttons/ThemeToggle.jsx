@@ -4,9 +4,7 @@ import { Classic } from "@theme-toggles/react"
 import "@theme-toggles/react/css/Classic.css"
 
 const ThemeToggle = ({className}) => {
-  const [theme, setTheme] = useState('light');
-
-  const savedTheme = typeof window !== 'undefined' && localStorage ? localStorage.getItem('natours-theme') : null;
+  const [theme, setTheme] = useState(null);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -15,8 +13,11 @@ const ThemeToggle = ({className}) => {
   }
 
   useEffect(() => {
+    const savedTheme = typeof window !== 'undefined' && localStorage ? localStorage.getItem('natours-theme') : null;
     if (savedTheme) {
       setTheme(savedTheme);
+    } else {
+      setTheme('light')
     }
   }, []);
 
