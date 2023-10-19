@@ -30,11 +30,11 @@ function page({params}) {
               </Success>
               )
           break;
-        case 'confirm-email':
-              const message = options[1]?.replaceAll('%20', ' ')
+        case 'forgot-password':
+              const email = options[1]?.replaceAll('%40', '@')
               return (
                 <Success>
-                  {message}
+                  {`Email has been sent successfully on ${email}. Please check your inbox.`}
                 </Success>
               )
           break;

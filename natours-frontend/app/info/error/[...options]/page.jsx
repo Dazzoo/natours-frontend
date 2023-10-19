@@ -4,7 +4,7 @@ const Error = ({children}) => {
     return (
         <div className='min-h-[90vh] flex flex-col justify-center items-center text-[1.7rem]' >
             <h2 className='text-[4rem] font-bold' >
-              Error 🥳
+              Error 💥
             </h2>
             <div className=' font-semibold my-[7rem] w-[40%] max-sm:w-[80%] max-w-[max-content]' >
                 {children}

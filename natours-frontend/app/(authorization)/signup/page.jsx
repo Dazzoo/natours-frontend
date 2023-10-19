@@ -11,7 +11,9 @@ function page(props) {
         className={'mb-[3.5rem]'}
         value='Create your account!'
       />
-      <RegisterForm  />
+      <RegisterForm
+        
+      />
     </LogRegLayout>
   );
 }

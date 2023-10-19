@@ -15,6 +15,7 @@ class Api {
   async request(func, options) {
     try {
       let res = await func();
+      console.log('api-res', res)
       if (options?.notify_success) {
         if (String(res.status)?.startsWith('2')) {
           toast.success(`${res?.data?.message || res?.data?.status}`);
@@ -22,6 +23,7 @@ class Api {
       }
       return res;
     } catch (error) {
+      console.log('api-error', error)
       if (options?.notify_error) {
         if (error?.response?.data?.message) {
           toast.error(`${error?.response?.data?.message}`);
