@@ -17,7 +17,7 @@ function ResetPassword(props) {
 
 
   const onSubmit = async data => {
-    let response = await authApi.ResetPassword(data['Email address']);
+    let response = await authApi.ForgotPassword(data['Email address']);
     console.log(response)
     if (String(response?.status).startsWith('2')) {
         push(`/info/success/forgot-password/${data['Email address']}`, 'replace')

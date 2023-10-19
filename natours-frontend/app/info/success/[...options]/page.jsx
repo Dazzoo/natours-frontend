@@ -19,7 +19,7 @@ function page({params}) {
     
     switch (type) {
         case 'register':
-            const name = options[1]?.replaceAll('%20', ' ')
+            const name = decodeURIComponent(options[1])
             return (
               <Success>
                 Dear {name},
@@ -31,7 +31,7 @@ function page({params}) {
               )
           break;
         case 'forgot-password':
-              const email = options[1]?.replaceAll('%40', '@')
+              const email = decodeURIComponent(options[1])
               return (
                 <Success>
                   {`Email has been sent successfully on ${email}. Please check your inbox.`}
@@ -42,7 +42,12 @@ function page({params}) {
 
           break;
         default:
-          break;
+          const message = decodeURIComponent(options[1])
+              return (
+                <Success>
+                  {message}
+                </Success>
+              )
       }
 }
 

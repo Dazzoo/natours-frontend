@@ -90,11 +90,27 @@ class authApi extends Api {
       return response.status;
     }
   }
-  async ResetPassword(email) {
+  async ForgotPassword(email) {
     const response = await this.request(
       () =>
         this.http.post(`/api/v1/users/forgot-password`, {
           email
+        }),
+      {
+        notify_success: false,
+        notify_error: false,
+      }
+    );
+    if (response) {
+      return response;
+    }
+  }
+  async ResetPassword(token, password, passwordConfirm) {
+    const response = await this.request(
+      () =>
+        this.http.patch(`/api/v1/users/reset-password/${token}`, {
+          password,
+          passwordConfirm
         }),
       {
         notify_success: false,

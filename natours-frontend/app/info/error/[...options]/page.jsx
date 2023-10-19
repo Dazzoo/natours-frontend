@@ -19,7 +19,7 @@ function page({params}) {
     
     switch (type) {
         case 'error':
-            const message = options[1]?.replaceAll('%20', ' ')
+            const message = decodeURIComponent(options[1])
             return (
               <Error>
                 {message}
