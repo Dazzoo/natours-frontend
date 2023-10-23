@@ -215,7 +215,7 @@ function TourPage({ tour, reviews }) {
               </div>
             </div>
             <div className=' max-xl:flex-col max-xl:pt-[3rem]'>
-              <BookTour/>
+              <BookTour tourId={tour._id} />
             </div>
           </div>
         </div>
