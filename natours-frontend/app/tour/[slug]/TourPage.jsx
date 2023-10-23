@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import ReviewsCarousel from './ReviewsCarousel';
-import ButtonGreenSmall from '@/components/buttons/ButtonGreenSmall';
+import BookTour from './BookTour'
 import MapBox from '@/components/MapBox';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import { IoLocationOutline } from 'react-icons/io5';
@@ -30,7 +30,7 @@ function TourPage({ tour, reviews }) {
 
   return (
     <>
-      <div className='relative overflow-y-hidden	'>
+      <div className='relative overflow-y-none	'>
         <div className=' absolute flex justify-between h-[100%] w-[100%] overflow-hidden z-[-1]'>
           <div className=' w-[50%] bg-white-alabaster h-[100%]'></div>
           <div className=' w-[50%] '></div>
@@ -177,17 +177,32 @@ function TourPage({ tour, reviews }) {
           <div className='box-shadow-bold-x2 w-[80%] max-md:w-[85%] h-[30rem]   rounded-[20px] flex justify-between items-center overflow-hidden	relative px-[5rem] py-[5rem] max-xl:flex-col max-xl:h-auto'>
             <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[100%] flex items-center justify-center ml-[-10rem] relative z-20 select-none drag-none'>
               <div className='bg-green-emerald-gradient clip-path-circle h-[70%] flex items-center justify-center relative '>
-                <img className='w-[50%] max-md:w-[40%] ' src='/img/logo-white.png' />
+                <Image className='w-[50%] max-md:w-[40%] ' 
+                src='/img/logo-white.png'
+                width={500}
+                height={500}
+                alt="Logo"
+                 />
               </div>
             </div>
-            <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[70%] flex items-center justify-center ml-[-7rem] absolute z-10 select-none drag-none'>
+            <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[70%] flex items-center justify-center ml-[-24rem] absolute z-10 select-none drag-none'>
               <div className='bg-white-alabaster clip-path-circle h-[70%] flex items-center justify-center  z-10 left-[0rem] opacity-80'>
-                <img className='w-[50%] max-md:w-[40%] ' src='/img/logo-white.png' />
+                <Image className='w-[50%] max-md:w-[40%] ' 
+                src={tourImgUrls(tour.images[0])}
+                width={500}
+                height={500}
+                alt="Tour image 1"
+                 />
               </div>
             </div>
-            <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[70%] flex items-center justify-center ml-[-4rem] absolute z-0 select-none drag-none'>
+            <div className='clip-box-shadow-bold-x2 max-2xl:hidden h-[70%] flex items-center justify-center ml-[-20rem] absolute z-0 select-none drag-none'>
               <div className='bg-white-alabaster clip-path-circle h-[70%] flex items-center justify-center  z-10 left-[0rem] opacity-80'>
-                <img className='w-[50%] max-md:w-[40%]' src='/img/logo-white.png' />
+                <Image className='w-[50%] max-md:w-[40%]' 
+                src={tourImgUrls(tour.images[1])}
+                width={500}
+                height={500}
+                alt="Tour image 2"
+                 />
               </div>
             </div>
 
@@ -200,7 +215,7 @@ function TourPage({ tour, reviews }) {
               </div>
             </div>
             <div className=' max-xl:flex-col max-xl:pt-[3rem]'>
-              <ButtonGreenSmall value={'BOOK TOUR NOW!'} href={'/'} />
+              <BookTour/>
             </div>
           </div>
         </div>
