@@ -11,6 +11,20 @@ class bookingsApi extends Api {
       return response;
     }
   }
+  async createBooking(tourId, userId, price) {
+    const response = await this.request(
+      () =>
+        this.http.post('/api/v1/bookings/', {tour: tourId, user: userId, price}),
+      {
+        notify_success: false,
+        notify_error: false,
+      }
+    );
+    if (response) {
+      debugger
+      return response;
+    }
+  }
 }
 
 export default new bookingsApi();

@@ -38,8 +38,25 @@ function page({params}) {
                 </Success>
               )
           break;
-        case 'valueN':
-
+        case 'booking':
+              return (
+                <Success>
+                  <div className='flex-row leading-relaxed' >
+                    <div className=' flex justify-center' >
+                        Payment Successful! 🎉
+                      </div>
+                      <div className=' flex justify-center' >
+                        Thank you for your payment. Your tour is now booked. We're excited to have you on board and look forward to providing you with an amazing experience.
+                      </div>
+                      <div className=' flex justify-center' >
+                       Please check your email for the booking confirmation and further details. If you have any questions or need assistance, feel free to reach out to our customer support team.
+                      </div>
+                      <div className=' flex justify-center' >
+                        Have a fantastic time on your tour! 🌟
+                      </div>
+                  </div>
+                </Success>
+              )
           break;
         default:
           const message = decodeURIComponent(options[1])
