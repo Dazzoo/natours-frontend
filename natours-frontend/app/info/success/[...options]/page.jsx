@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Success = ({children}) => {
+const Success = ({children, title}) => {
     return (
         <div className='min-h-[90vh] flex flex-col justify-center items-center text-[1.7rem]' >
             <h2 className='text-[4rem] font-bold' >
-              Success 🥳
+              {title || 'Success 🥳'}
             </h2>
             <div className=' font-semibold my-[7rem] w-[40%] max-sm:w-[80%] max-w-[max-content]' >
                 {children}
@@ -40,18 +40,15 @@ function page({params}) {
           break;
         case 'booking':
               return (
-                <Success>
+                <Success title={'Payment Successful! 🎉'} >
                   <div className='flex-row leading-relaxed' >
-                    <div className=' flex justify-center' >
-                        Payment Successful! 🎉
-                      </div>
                       <div className=' flex justify-center' >
                         Thank you for your payment. Your tour is now booked. We're excited to have you on board and look forward to providing you with an amazing experience.
                       </div>
                       <div className=' flex justify-center' >
                        Please check your email for the booking confirmation and further details. If you have any questions or need assistance, feel free to reach out to our customer support team.
                       </div>
-                      <div className=' flex justify-center' >
+                      <div className=' flex justify-center mt-[1rem]' >
                         Have a fantastic time on your tour! 🌟
                       </div>
                   </div>
