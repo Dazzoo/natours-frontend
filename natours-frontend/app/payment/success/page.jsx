@@ -12,7 +12,6 @@ function page() {
       const handleBookingPayment = async () => {
             const response = await bookingsApi.createBooking(params.tourId, params.userId, params.price);
             if (String(response?.status).startsWith('2')) {
-                debugger
                 push(`/info/success/booking/`, 'replace')
             } else if (response?.data.error.message) {
                 push(`/info/error/error/${response.data.error.message}`, 'replace')
@@ -33,7 +32,6 @@ function page() {
 
       useEffect( () => {
         if (params?.tourId && params?.userId && params?.price && !pending) {
-            alert('trigger')
             setPending(true);
             handleBookingPayment()
         }

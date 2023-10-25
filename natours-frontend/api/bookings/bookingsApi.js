@@ -11,6 +11,15 @@ class bookingsApi extends Api {
       return response;
     }
   }
+
+  async getMyBookings(token) {
+    const response = await this.request(() => this.http.get(`/api/v1/bookings/my`,
+    { headers: { token } }));
+    if (response.data.data) {
+      return response.data.data
+    }
+  }
+
   async createBooking(tourId, userId, price) {
     const response = await this.request(
       () =>
