@@ -27,15 +27,15 @@ pnpm dev
 
 3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-#Features
+# Features
 
 * Responsive design that adapts to different screen sizes.
 * Animations and transitions to create an interactive experience.
 * Use of modern CSS techniques like Flexbox and Grid.
 * Use of JavaScript to enhance functionality and user experience.
 
-#Contributing
+# Contributing
 Contributions are always welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
-#License
+# License
 This project is licensed under the MIT License. See the LICENSE file for more details.
