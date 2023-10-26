@@ -27,7 +27,6 @@ function AuthHeader() {
     }
   };
 
-  console.log('user_photo_path', user_photo_path)
 
   const items = [
     {

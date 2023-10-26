@@ -26,7 +26,6 @@ function page({params}) {
     let response = await authApi.ResetPassword(resetToken, data['Password'], data['Confirm password']);
 
       if (String(response?.status).startsWith('2')) {
-        console.log(response.data.message)
         push(`/info/success/reset-password/${response.data.message}`, 'replace')
       } else if (response?.data.error.message) {
         push(`/info/error/error/${response.data.error.message}`, 'replace')

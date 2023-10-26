@@ -8,7 +8,6 @@ async function page(props) {
     
     const bookings = await bookingsApi.getMyBookings(jwtParser())
 
-    console.log('bookings', bookings)
     return (
         <div className=' min-h-[100vh] py-32 px-24 overflow-auto'>
             <TitleH1

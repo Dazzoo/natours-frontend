@@ -30,7 +30,6 @@ class bookingsApi extends Api {
       }
     );
     if (response) {
-      debugger
       return response;
     }
   }
