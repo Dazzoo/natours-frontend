@@ -16,8 +16,8 @@ function BookTour({ tourId }) {
         if (!user) {
             push('/login')
         } {
-            const res = await bookingsApi.getCheckoutSession(tourId)
-            if (res.data.data.url) push(res.data.data.url)
+            const res = await bookingsApi.getCheckoutSession(tourId, window.localStorage?.jwt)
+            if (String(res.status)?.startsWith('2') && res.data.data.url) push(res.data.data.url)
         }
         setProcessing(null)
     }

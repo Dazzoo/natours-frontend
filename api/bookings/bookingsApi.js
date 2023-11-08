@@ -5,8 +5,8 @@ class bookingsApi extends Api {
     super();
   }
 
-  async getCheckoutSession(tourId) {
-    const response = await this.request(() => this.http.get(`/api/v1/bookings/checkout-session/${tourId}`));
+  async getCheckoutSession(tourId, token) {
+    const response = await this.request(() => this.http.get(`/api/v1/bookings/checkout-session/${tourId}`, { headers: { token } }));
     if (response) {
       return response;
     }

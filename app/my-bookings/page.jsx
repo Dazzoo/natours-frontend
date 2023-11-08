@@ -23,7 +23,7 @@ async function page(props) {
                 </div>
             </div>
             :
-            <h3 className='mt-[20rem] text-[5rem] font-bold ' >
+            <h3 className='mt-[20rem] text-[5rem] font-bold flex justify-center' >
                 Coming soon...
             </h3>
             }
