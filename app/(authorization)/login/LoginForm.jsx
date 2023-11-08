@@ -28,7 +28,6 @@ function LoginForm(props) {
       localStorage.setItem('jwt', token);
       mutate()   
       router.push('/')
-      window.location.reload()
     }
   };
 
