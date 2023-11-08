@@ -1,12 +1,13 @@
 import React from 'react';
 import TitleH1 from '@/components/titles/TitleH1'
 import bookingsApi from '@/api/bookings/bookingsApi';
-import jwtParser from '@/utility/jwtParser'
 import TourCard from '@/components/TourCard'
 
 async function page(props) {
-    
-    const bookings = await bookingsApi.getMyBookings(windows.localStorage?.jwt)
+
+    const bookings = await bookingsApi.getMyBookings()
+
+    console.log('bookings', bookings)
 
     return (
         <div className=' min-h-[100vh] py-32 px-24 overflow-auto'>
@@ -24,7 +25,7 @@ async function page(props) {
             </div>
             :
             <h3 className='mt-[20rem] text-[5rem] font-bold flex justify-center' >
-                Coming soon...
+                No bookings yet
             </h3>
             }
         </div>
