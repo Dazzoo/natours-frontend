@@ -6,7 +6,7 @@ import TourCard from '@/components/TourCard'
 
 async function page(props) {
     
-    const bookings = await bookingsApi.getMyBookings(jwtParser())
+    const bookings = await bookingsApi.getMyBookings(windows.localStorage?.jwt)
 
     return (
         <div className=' min-h-[100vh] py-32 px-24 overflow-auto'>
