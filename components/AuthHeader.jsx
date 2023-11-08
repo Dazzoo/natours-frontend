@@ -20,9 +20,10 @@ function AuthHeader() {
     : null;
 
   const logout = async () => {
-    const res = await authApi.logOut();
+    const res = await authApi.logOut(window.localStorage?.jwt);
     if (res === 'success') {
       mutate()
+      alert('logout')
       router.push('/')
     }
   };

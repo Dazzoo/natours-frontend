@@ -26,7 +26,8 @@ function LoginForm(props) {
     let token = await authApi.Login(data['Email address'], data['Password']);
     if (token) {
       localStorage.setItem('jwt', token);
-      mutate()      
+      mutate()   
+      router.push('/')
     }
   };
 
