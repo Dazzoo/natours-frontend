@@ -12,8 +12,8 @@ class bookingsApi extends Api {
     }
   }
 
-  async getMyBookings() {
-    const response = await this.request(() => this.http.get(`/api/v1/bookings/my`));
+  async getMyBookings(token) {
+    const response = await this.request(() => this.http.get(`/api/v1/bookings/my`, { headers: { token } }));
     if (response.data.data) {
       return response.data.data
     }
