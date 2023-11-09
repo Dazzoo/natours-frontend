@@ -6,6 +6,8 @@ import jwtParser from '@/utility/jwtParser';
 
 async function page(props) {
 
+    console.log('bookings-token', jwtParser())
+
     const bookings = await bookingsApi.getMyBookings(jwtParser())
 
     return (
