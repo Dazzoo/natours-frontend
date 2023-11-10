@@ -6,7 +6,7 @@ import jwtParser from '@/utility/jwtParser';
 
 async function page(props) {
 
-    console.log('req', await fetch('http://127.0.0.1:6969/api/v1/bookings/my', { dynamic: 'force-dynamic' }))
+    console.log('req', await fetch('https://natours-back-end-f19a9ffbcdd5.herokuapp.com/api/v1/bookings/my', { dynamic: 'force-dynamic' }))
     console.log('end')
 
     const bookings = await bookingsApi.getMyBookings(jwtParser())
