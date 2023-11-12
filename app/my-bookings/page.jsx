@@ -1,13 +1,14 @@
+'use client'
 import React from 'react';
 import TitleH1 from '@/components/titles/TitleH1'
 import bookingsApi from '@/api/bookings/bookingsApi';
 import TourCard from '@/components/TourCard'
 import jwtParser from '@/utility/jwtParser';
 
-async function page(props) {
+async function page() {
 
 
-    const bookings = await bookingsApi.getMyBookings(jwtParser())
+    const bookings = await bookingsApi.getMyBookings()
 
     return (
         <div className=' min-h-[100vh] py-32 px-24 overflow-auto'>

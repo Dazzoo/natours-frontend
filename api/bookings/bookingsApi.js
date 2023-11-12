@@ -5,15 +5,15 @@ class bookingsApi extends Api {
     super();
   }
 
-  async getCheckoutSession(tourId, token) {
-    const response = await this.request(() => this.http.get(`/api/v1/bookings/checkout-session/${tourId}`, { headers: { token } }));
+  async getCheckoutSession(tourId) {
+    const response = await this.request(() => this.http.get(`/api/v1/bookings/checkout-session/${tourId}`));
     if (response) {
       return response;
     }
   }
 
-  async getMyBookings(token) {
-    const response = await this.request(() => this.http.get(`/api/v1/bookings/my`, { headers: { cookie: `jwt=${token}` } }));
+  async getMyBookings() {
+    const response = await this.request(() => this.http.get(`/api/v1/bookings/my`));
     if (response.data.data) {
       return response.data.data
     }
