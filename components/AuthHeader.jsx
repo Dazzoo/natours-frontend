@@ -52,12 +52,12 @@ function AuthHeader() {
     },
   ];
 
-  if (isLoading) {
-    return (
-      <div className=' flex w-[20rem] justify-center items-center'>
-        <PreloaderCycling className={'max-w-[8rem] block'}  />
-      </div>)
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className=' flex w-[20rem] justify-center items-center'>
+  //       <PreloaderCycling className={'max-w-[8rem] block'}  />
+  //     </div>)
+  // }
 
   if (user) {
   return (
