@@ -1,3 +1,4 @@
+'use client'
 import useSWR from "swr";
 import authApi from '@/api/auth/authApi';
 
