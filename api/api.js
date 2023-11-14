@@ -23,8 +23,11 @@ class Api {
       return res;
     } catch (error) {
       if (options?.notify_error) {
+        debugger
         if (error?.response?.data?.message) {
           toast.error(`${error?.response?.data?.message}`);
+        } else if (error.message) {
+          toast.error(`${error.message}`);
         }
       }
       return error.response

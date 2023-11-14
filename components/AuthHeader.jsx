@@ -15,7 +15,7 @@ function AuthHeader() {
   const { user, loggedOut, isLoading, mutate } = useUser();
 
   const user_name = user?.name;
-  const user_photo_path = user?.photo?.path
+  const user_photo_path = user?.photo?.path.startsWith('http') ? user?.photo?.path : user?.photo?.path
     ? `${process.env.API_BASE_URL}/${user?.photo.path.replace(/^public\\/, '')}`
     : null;
 
