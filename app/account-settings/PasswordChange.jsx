@@ -25,11 +25,9 @@ function PasswordChange({mutate}) {
         if (data['Current password'] && data['New Password'] && data['Confirm Your New Password']) {
           const statusCode = await usersApi.updateUserPassword(data['Current password'], data['New Password'], data['Confirm Your New Password']);
           if (String(statusCode).startsWith('2')) {
-            const res = await authApi.logOut();
-              if (res === 'success') {
                 mutate()
                 router.push('/login')
-              }
+                window.location.reload()
           }
         } else {
     
