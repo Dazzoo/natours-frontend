@@ -7,7 +7,7 @@ const nextConfig = {
   images: {
     // here you can add the url's that you are planning
     // to use inside your next/image.
-    domains: [host],
+    domains: [host, process.env.IMAGES_HOST],
   },
   env: {
     API_BASE_URL: process.env.API_BASE_URL,
