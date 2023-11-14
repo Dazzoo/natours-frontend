@@ -25,7 +25,9 @@ export async function Header(props) {
       <div className='header_logo flex self-center absolute left-1/2 transform -translate-x-1/2'>
         <Image height={35} width={68} src='/img/logo-white.png' />
       </div>
+      <div className='relative' >
         <AuthHeader  />
+      </div>
     </header>
   );
 }

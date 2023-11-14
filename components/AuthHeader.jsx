@@ -61,7 +61,7 @@ function AuthHeader() {
 
   if (user) {
   return (
-    <Dropdown placement='bottom-end'>
+    <Dropdown placement='bottom-end absolute'>
       <DropdownTrigger>
         <div className='flex h-full items-center cursor-pointer px-[1rem]	hover:bg-grey-tundora-lighter'>
           <div className='text-white-alabaster font-normal uppercase mr-[3rem] '>{user_name}</div>
