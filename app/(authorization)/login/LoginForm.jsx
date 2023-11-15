@@ -40,7 +40,7 @@ function LoginForm(props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className='flex flex-col mb-[2.5rem] relative'>
+      <div className='flex flex-col mb-[2.5rem] max-md:mb-[1.4rem] relative'>
         <InputBasic
                   type="text"
                   required={true}
@@ -67,9 +67,9 @@ function LoginForm(props) {
       </div>
       
 
-      <div className='mt-[3rem] flex justify-between'>
+      <div className='mt-[3rem] flex justify-between items-center'>
         <ButtonSubmitGreenSmall value='Login' />
-        <a href='/forgot-password' className='text-[1.6rem] text-grey-boulder font-semibold' >
+        <a href='/forgot-password' className='text-[1.6rem] ml-[1rem] max-md:text-[1.4rem] text-grey-boulder font-semibold' >
         Forgot password ?
       </a>
       </div>

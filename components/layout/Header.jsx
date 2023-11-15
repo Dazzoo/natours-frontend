@@ -10,7 +10,7 @@ export const fetchCache = 'force-no-store';
 
 export async function Header(props) {
   return (
-    <header className='bg-grey-tundora h-32 pl-20 pr-20 flex justify-between text-[1.6rem] relative font-lato'>
+    <header className='bg-grey-tundora h-32 pl-20 pr-20 flex justify-between text-[1.6rem] max-md:text-[1.4rem] relative font-lato'>
       <nav className='flex h-full items-center'>
         <Link
           href='/'

@@ -7,7 +7,7 @@ function page(props) {
   return (
     <LogRegLayout>
       <TitleH2
-        className={'mb-[3.5rem]'}
+        className={'mb-[3.5rem] max-md:text-center'}
         value='Log into your account'
       />
       <LoginForm/>
