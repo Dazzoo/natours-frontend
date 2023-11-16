@@ -29,6 +29,11 @@ To get started with the project locally, you can follow these steps:
 
 # Features
 
+* **Tour Purchase**: Test this feature using the credit card number 4242 4242 4242 4242.
+* **User Profile Management**: This feature lets you manage your account details and change your password.
+* **Tour Details with Mapbox**: View the actual locations a tour will visit.
+* **Leaving and Editing Comments (Under Development)**: The frontend components for commenting and editing comments are still being developed.
+
 # Contributing
 Contributions are always welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
