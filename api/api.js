@@ -3,11 +3,17 @@ import { toast } from 'react-toastify';
 import { parse } from 'cookie';
 
 class Api {
+  // Check if we're in a browser environment
+
   constructor() {
+    this.jwtHeader
+    if (typeof window !== 'undefined') {
+      this.jwtHeader = window.localStorage.getItem('jwt');
+    }
     this.http = axios.create({
       baseURL: `${process.env.API_BASE_URL}`,
       timeout: 30000,
-      headers: { 'X-Custom-Header': 'foobar' },
+      headers: { 'X-Custom-Header': 'foobar', 'jwt': this.jwtHeader },
       withCredentials: true,
     });
   }
