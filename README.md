@@ -1,6 +1,6 @@
 # Natours Frontend
 
-This is the frontend app for the Natours project, which is a fictional nature tours booking website. This project is developed using Next.js, CSS, and JavaScript.
+This is the frontend app for the Natours project, which is a fictional nature tours booking website. This project is developed using Next.js, CSS, Tailwind and JavaScript.
 
 You can see production DEMO here: https://natours-frontend-c8da54608917.herokuapp.com
 
