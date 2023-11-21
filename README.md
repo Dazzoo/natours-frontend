@@ -4,6 +4,13 @@ This is the frontend app for the Natours project, which is a fictional nature to
 
 You can see production DEMO here: https://natours-frontend-c8da54608917.herokuapp.com
 
+# Features
+
+* **Tour Purchase**: Test this feature using the credit card number 4242 4242 4242 4242.
+* **User Profile Management**: This feature lets you manage your account details and change your password.
+* **Tour Details with Mapbox**: View the actual locations a tour will visit.
+* **Leaving and Editing Comments (Under Development)**: The frontend components for commenting and editing comments are still being developed.
+
 ## Getting Started
 
 To get started with the project locally, you can follow these steps:
@@ -26,13 +33,6 @@ To get started with the project locally, you can follow these steps:
    ```
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-# Features
-
-* **Tour Purchase**: Test this feature using the credit card number 4242 4242 4242 4242.
-* **User Profile Management**: This feature lets you manage your account details and change your password.
-* **Tour Details with Mapbox**: View the actual locations a tour will visit.
-* **Leaving and Editing Comments (Under Development)**: The frontend components for commenting and editing comments are still being developed.
 
 # Contributing
 Contributions are always welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
