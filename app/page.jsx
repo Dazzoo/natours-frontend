@@ -12,9 +12,14 @@ export default async function Home(props) {
     <div className='font-lato'>
       <main className='bg-white-alabaster  flex py-32 px-24 overflow-hidden	 '>
         <div className=' w-[100%] min-h-[90vh] flex  justify-center overflow-hidden	 flex-wrap'>
-          {tours.map(tour => (
+          {tours && tours.lenght > 0 ? tours.map(tour => (
             <TourCard key={tour._id} tour={tour} />
-          ))}
+          ))
+            :
+            <div>
+                No Tours
+            </div>
+        }
         </div>
       </main>
     </div>
