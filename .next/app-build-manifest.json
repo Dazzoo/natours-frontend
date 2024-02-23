@@ -64,6 +64,15 @@
       "static/css/a1aca90592abd8ce.css",
       "static/chunks/app/(authorization)/reset-password/[token]/page-42c584afcd721655.js"
     ],
+    "/(authorization)/signup/page": [
+      "static/chunks/webpack-374ad4e37f9be57d.js",
+      "static/chunks/fd9d1056-caa8a0da633be94a.js",
+      "static/chunks/472-85fe34d711adac5e.js",
+      "static/chunks/main-app-f30c05812bfce754.js",
+      "static/chunks/248-715316b07ee15b02.js",
+      "static/chunks/918-77303977788e275e.js",
+      "static/chunks/app/(authorization)/signup/page-f4c9557c7da8a775.js"
+    ],
     "/account-settings/page": [
       "static/chunks/webpack-374ad4e37f9be57d.js",
       "static/chunks/fd9d1056-caa8a0da633be94a.js",
@@ -77,14 +86,12 @@
       "static/css/a1aca90592abd8ce.css",
       "static/chunks/app/account-settings/page-3598ed1c84542371.js"
     ],
-    "/(authorization)/signup/page": [
+    "/billing/page": [
       "static/chunks/webpack-374ad4e37f9be57d.js",
       "static/chunks/fd9d1056-caa8a0da633be94a.js",
       "static/chunks/472-85fe34d711adac5e.js",
       "static/chunks/main-app-f30c05812bfce754.js",
-      "static/chunks/248-715316b07ee15b02.js",
-      "static/chunks/918-77303977788e275e.js",
-      "static/chunks/app/(authorization)/signup/page-f4c9557c7da8a775.js"
+      "static/chunks/app/billing/page-f6d0f0d13d789be7.js"
     ],
     "/confirmEmail/[emailToken]/page": [
       "static/chunks/webpack-374ad4e37f9be57d.js",
@@ -94,13 +101,6 @@
       "static/chunks/413-84b4c308c071bf2b.js",
       "static/css/a1aca90592abd8ce.css",
       "static/chunks/app/confirmEmail/[emailToken]/page-98281408eac8f747.js"
-    ],
-    "/billing/page": [
-      "static/chunks/webpack-374ad4e37f9be57d.js",
-      "static/chunks/fd9d1056-caa8a0da633be94a.js",
-      "static/chunks/472-85fe34d711adac5e.js",
-      "static/chunks/main-app-f30c05812bfce754.js",
-      "static/chunks/app/billing/page-f6d0f0d13d789be7.js"
     ],
     "/info/error/[...options]/page": [
       "static/chunks/webpack-374ad4e37f9be57d.js",

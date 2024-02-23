@@ -1,5 +1,5 @@
 1:HL["/_next/static/css/e4ffec1ac9b83867.css","style",{"crossOrigin":""}]
-0:["1Sv2PVEsCKhLnzjYl5ktk",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/e4ffec1ac9b83867.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
+0:["IShOuV7ifMN5jO57sGTxK",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/e4ffec1ac9b83867.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
 3:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Natours | Exciting tours for adventurous people"}],["$","meta","2",{"name":"description","content":"Natours | Exciting tours for adventurous people"}],["$","meta","3",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 2:[null,"$L4",null]
 6:I[6954,[],""]
