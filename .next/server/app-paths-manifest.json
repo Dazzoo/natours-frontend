@@ -1,0 +1,18 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/(authorization)/login/page": "app/(authorization)/login/page.js",
+  "/(authorization)/forgot-password/page": "app/(authorization)/forgot-password/page.js",
+  "/(authorization)/reset-password/[token]/page": "app/(authorization)/reset-password/[token]/page.js",
+  "/account-settings/page": "app/account-settings/page.js",
+  "/(authorization)/signup/page": "app/(authorization)/signup/page.js",
+  "/confirmEmail/[emailToken]/page": "app/confirmEmail/[emailToken]/page.js",
+  "/billing/page": "app/billing/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/info/error/[...options]/page": "app/info/error/[...options]/page.js",
+  "/info/success/[...options]/page": "app/info/success/[...options]/page.js",
+  "/my-bookings/page": "app/my-bookings/page.js",
+  "/my-reviews/page": "app/my-reviews/page.js",
+  "/page": "app/page.js",
+  "/payment/success/page": "app/payment/success/page.js",
+  "/tour/[slug]/page": "app/tour/[slug]/page.js"
+}
