@@ -7,12 +7,16 @@ class toursApi extends Api {
 
   async getTours() {
     const response = await this.request(() => this.http.get('/api/v1/tours'));
-    return response.data.data.data;
+    if (response?.data.data.data) {
+      return response.data.data.data;
+    }
   }
 
   async getTourBySlug(slug) {
     const response = await this.request(() => this.http.get(`/api/v1/tours/params/${slug}`));
-    return response.data.data.data;
+    if (response?.data.data.data) {
+      return response.data.data.data;
+    }
   }
 }
 
